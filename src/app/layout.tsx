@@ -42,17 +42,17 @@ const satoshi = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://mor.in'),
   title: {
-    default: `${site.name} — Hand-crochet heirlooms in natural fibre`,
+    default: `${site.name} — Small-batch crochet creatures and keepsakes`,
     template: `%s — ${site.name}`,
   },
   description:
-    'Bespoke crochet blankets, throws and shawls in undyed cashmere, merino and silk. Made to order by one pair of hands. Commissioned, not manufactured.',
+    'Small-batch crochet creatures and keepsakes, made one at a time in India. Commissioned, not manufactured.',
   openGraph: {
     type: 'website',
     siteName: site.name,
-    title: `${site.name} — Hand-crochet heirlooms in natural fibre`,
+    title: `${site.name} — Small-batch crochet creatures and keepsakes`,
     description:
-      'Bespoke crochet blankets, throws and shawls in undyed cashmere, merino and silk. Made to order by one pair of hands.',
+      'Small-batch crochet creatures and keepsakes, made one at a time in India. Commissioned, not manufactured.',
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },

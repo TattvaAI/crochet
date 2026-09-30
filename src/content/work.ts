@@ -3,10 +3,8 @@ import type { PieceCategory, Tier } from './tiers';
 /**
  * THE WORK
  *
- * Placeholder photography. Replace `image` with your own path
- * (e.g. '/work/moss-granny.jpg') and drop the file into /public/work.
- * If the file is missing the site renders a tonal placeholder tile
- * rather than a broken image — so you can deploy before shooting.
+ * Catalog of hand-crocheted amigurumi creatures and accessories.
+ * Photographs are served from /public/work.
  */
 
 export type Piece = {
@@ -27,212 +25,200 @@ export type Piece = {
 
 export const pieces: Piece[] = [
   {
-    slug: 'moss-granny',
-    title: 'Moss',
-    category: 'Blanket',
-    tier: 'atelier',
-    material: 'Undyed Mule’s Fiber cashmere, undyed Lambswool',
-    hours: 340,
-    dimensions: '220 × 240 cm',
-    priceInr: 78000,
-    image: '/work/moss-granny.jpg',
-    note: 'Six shades of undyed fleece, graded by micron. No dye, no two skeins identical.',
-    swatch: '#24382c',
+    slug: 'cloud-bunny',
+    title: 'Cloud Bunny',
+    category: 'Plushie',
+    tier: 'signature',
+    material: 'Plush-touch yarn, sourced per piece',
+    hours: 12,
+    dimensions: '28 cm height',
+    priceInr: 4800,
+    image: '/work/hero-bunny.jpg',
+    note: 'Sitting bunny with elongated ears and embroidered facial detailing.',
+    swatch: '#c3c9b6',
   },
   {
-    slug: 'seafoam-square',
-    title: 'Seafoam',
-    category: 'Throw',
-    tier: 'heritage',
-    material: 'Merino-silk, seafoam',
-    hours: 96,
-    dimensions: '140 × 180 cm',
-    priceInr: 16500,
-    image: '/work/seafoam-square.jpg',
-    note: 'Signature granny stripe, joined flat with a mattress stitch so the seam disappears.',
-    swatch: '#9fb3a8',
-  },
-  {
-    slug: 'heirloom- wrap',
-    title: 'Heirloom Wrap',
-    category: 'Wrap',
-    tier: 'gift',
-    material: 'Mulberry silk, undyed',
-    hours: 18,
-    dimensions: '60 × 200 cm',
-    priceInr: 7200,
-    image: '/work/heirloom-wrap.jpg',
-    note: 'Monogrammed at the corner. The piece most often sent without the giver named.',
+    slug: 'portrait-dolls',
+    title: 'Portrait Dolls',
+    category: 'Doll',
+    tier: 'bespoke',
+    material: 'Plush-touch yarn, sourced per piece',
+    hours: 25,
+    dimensions: '30 cm pair',
+    priceInr: 15000,
+    image: '/work/dolls-pair.jpg',
+    note: 'Personalised couple portrait dolls developed from client reference photographs.',
     swatch: '#d9dcd2',
   },
   {
-    slug: 'ash-herringbone',
-    title: 'Ash',
-    category: 'Throw',
-    tier: 'heritage',
-    material: 'Cashmere-merino, ash grey',
-    hours: 120,
-    dimensions: '150 × 200 cm',
-    priceInr: 19000,
-    image: '/work/ash-herringbone.jpg',
-    note: 'Herringbone worked in two greys only — the pattern does the work, not the colour.',
-    swatch: '#c3c9b6',
+    slug: 'cow-plushie',
+    title: 'Cow Plushie',
+    category: 'Plushie',
+    tier: 'signature',
+    material: 'Plush-touch yarn, sourced per piece',
+    hours: 10,
+    dimensions: '24 cm height',
+    priceInr: 3800,
+    image: '/work/cow-plushie.jpg',
+    note: 'Pink and white colour-blocked plushie with contoured horns and muzzle.',
+    swatch: '#e8d8d8',
   },
   {
-    slug: 'the- long shawl',
-    title: 'The Long Shawl',
-    category: 'Shawl',
-    tier: 'atelier',
-    material: 'Baby cashmere, madder-dyed',
-    hours: 280,
-    dimensions: '70 × 240 cm',
-    priceInr: 65000,
-    image: '/work/long-shawl.jpg',
-    note: 'Pattern drafted around one pair of shoulders. Eleven hundred hours became one hundred and forty.',
-    swatch: '#3d4a3a',
+    slug: 'bow-bag',
+    title: 'Bow Bag',
+    category: 'Bag',
+    tier: 'signature',
+    material: 'Plush-touch yarn, sourced per piece',
+    hours: 18,
+    dimensions: '26 × 22 cm',
+    priceInr: 6200,
+    image: '/work/bow-bag.jpg',
+    note: 'Shoulder bag with statement bow motif and reinforced strap joinery.',
+    swatch: '#8b7d6b',
   },
   {
-    slug: 'first- blanket',
-    title: 'First',
-    category: 'Gift',
-    tier: 'gift',
-    material: 'Cotton-linen, undyed',
-    hours: 22,
-    dimensions: '90 × 120 cm',
-    priceInr: 6500,
-    image: '/work/first-blanket.jpg',
-    note: 'Woven edge, no stretch, made to be dragged behind a small person for ten years.',
-    swatch: '#c3c9b6',
+    slug: 'strawberry-keychains',
+    title: 'Strawberry Keychains',
+    category: 'Keychain',
+    tier: 'ready',
+    material: 'Plush-touch yarn, sourced per piece',
+    hours: 2,
+    dimensions: '6 × 8 cm each',
+    priceInr: 750,
+    image: '/work/keychains.jpg',
+    note: 'Hand-crocheted strawberry, bow, and heart charms mounted on brass keyrings.',
+    swatch: '#c3a8a8',
+  },
+  {
+    slug: 'strawberry-hat',
+    title: 'Strawberry Hat',
+    category: 'Hat',
+    tier: 'signature',
+    material: 'Plush-touch yarn, sourced per piece',
+    hours: 8,
+    dimensions: '54–56 cm circumference',
+    priceInr: 3000,
+    image: '/work/strawberry-hat.jpg',
+    note: 'Berry beret with crocheted stem topper. Shown worn.',
+    swatch: '#a84444',
   },
 ];
 
 export const featured = pieces.slice(0, 4);
 
 export const categories: PieceCategory[] = [
-  'Blanket',
-  'Throw',
-  'Shawl',
-  'Wrap',
-  'Gift',
+  'Plushie',
+  'Doll',
+  'Bag',
+  'Keychain',
+  'Hat',
 ];
 
 /**
- * PROCESS — the studio sequence, shot as real photographs.
- * `image` paths map to /public/process/.
+ * PROCESS — the studio sequence.
  */
 export type Step = {
   n: string;
   title: string;
   body: string;
   duration: string;
-  image: string;
 };
 
 export const process: Step[] = [
   {
     n: '01',
-    title: 'Enquiry',
-    body: 'Tell us who it is for, where it will live, and the date it needs to arrive. We reply within two working days with a straight answer on whether we are the right hands for it.',
+    title: 'Brief',
+    body: 'Tell us who it is for and the date it needs to arrive. We reply within two working days with a straight answer on whether we are the right hands for it.',
     duration: '2 days',
-    image: '/process/enquiry.jpg',
   },
   {
     n: '02',
-    title: 'Pattern',
-    body: 'A sketch or a chart, drawn for that one piece. Dimensions, stitch, tension, and the exact name and date that will be worked into the edge. Nothing is started until this is approved.',
-    duration: '1–2 weeks',
-    image: '/process/pattern.jpg',
+    title: 'Design review',
+    body: 'A review of references and proportions. Dimensions, colours, and custom details like dates or initials are agreed before work starts.',
+    duration: '3–5 days',
   },
   {
     n: '03',
-    title: 'Fibre',
-    body: 'Yarn ordered in and left to rest. Undyed, hand-dyed, or chosen from a small working palette. We will tell you the micron weight and where it came from.',
-    duration: '1–3 weeks',
-    image: '/process/fibre.jpg',
+    title: 'Yarn selection',
+    body: 'Plush-touch yarn sourced specifically for the piece and palette. Shades and textures are confirmed before hooking begins.',
+    duration: '3–7 days',
   },
   {
     n: '04',
-    title: 'Making',
-    body: 'The long part. One piece, no assembly line. You receive three progress photographs, and the studio is closed to new commissions while the work is on the hook.',
-    duration: '8–20 weeks',
-    image: '/process/making.jpg',
+    title: 'Handwork',
+    body: 'One piece at a time, worked by one pair of hands. You receive progress updates as the character or piece takes form.',
+    duration: '1–6 weeks',
   },
   {
     n: '05',
-    title: 'Proof',
-    body: 'Finished, blocked, photographed in daylight at full resolution. You approve the piece as it will be dispatched, or we make the change.',
-    duration: '1 week',
-    image: '/process/proof.jpg',
+    title: 'Photographic proof',
+    body: 'Finished, shaped, and photographed in daylight at full resolution. You approve the piece before anything leaves the studio.',
+    duration: '2–3 days',
   },
   {
     n: '06',
-    title: 'Dispatch',
-    body: 'Folded, never rolled. Cotton storage bag, hand-written care card, and no price anywhere in the parcel.',
+    title: 'Careful packaging',
+    body: 'Packed flat with protective tissue, a cotton storage bag, and a hand-written care card. No pricing anywhere in the parcel.',
     duration: '2–5 days',
-    image: '/process/dispatch.jpg',
   },
 ];
 
 /**
- * MATERIALS — provenance. This page does more for a gift buyer
- * choosing between you and a cheaper hand than any testimonial.
+ * STITCH LIBRARY — worked in plush yarn.
  */
 export const materials = [
   {
-    fibre: 'Cashmere',
-    detail: 'Grade A, 15.5 micron, combed not carded. Mule’s Fiber or Gifu. Softens without pilling for roughly a decade of daily use.',
-    use: 'Blankets, throws, shawls',
+    fibre: 'Shell stitch',
+    detail: 'A fan of arched loops worked in dense plush yarn. Creates scalloped edges and textured trim across accessories and hats.',
+    use: 'Hats, bag edgings, accents',
     swatch: '#d9dcd2',
   },
   {
-    fibre: 'Merino',
-    detail: '18.5 micron, mulesing-free, ZQ-certified New Zealand. Takes dye deeply and holds colour without fading to grey.',
-    use: 'Everyday throws, layering',
+    fibre: 'Herringbone stitch',
+    detail: 'An interlocking diagonal slip-stitch worked in structured plush yarn. Produces a sturdy, warp-resistant fabric that holds its shape.',
+    use: 'Bags, straps, structured pieces',
     swatch: '#8b968c',
   },
   {
-    fibre: 'Silk',
-    detail: 'Mulberry or bomby, spun for crochet rather than weaving. Adds a dry hand and a faint, natural sheen that catches raking light.',
-    use: 'Wraps, summer shawls',
+    fibre: 'Cable rib',
+    detail: 'Raised vertical ridges worked through front posts in plush yarn. Gives elastic recovery and firm hold without stretching out.',
+    use: 'Hat brims, handles, doll accessories',
     swatch: '#d9dcd2',
   },
   {
-    fibre: 'Undyed',
-    detail: 'Flock in its natural coat colour. Graded by micron across a single blanket so the tone shifts are the animal, not the dye bath.',
-    use: 'Atelier tier only',
-    swatch: '#24382c',
-  },
-  {
-    fibre: 'Cotton & linen',
-    detail: 'Long-staple, OEKO-TEX certified, woven edge. Breathable, washable, and the correct choice for a child’s first blanket.',
-    use: 'Gifts, children’s pieces',
+    fibre: 'Granny stripe',
+    detail: 'Clusters of treble stitches worked into chain spaces using plush yarn. Used for contrasting colour blocks and lightweight accessory bodies.',
+    use: 'Plushie garments, panels, pouches',
     swatch: '#c3c9b6',
   },
   {
-    fibre: 'Dye',
-    detail: 'Madder root, indigo, and walnut, hand-dyed in small vats. Expect variation between batches. This is the point.',
-    use: 'Shawls, signature work',
+    fibre: 'Chain loop',
+    detail: 'Tightly hooked foundation loops in high-twist plush yarn. Clean, resilient joins for charms, keychains, and hanging straps.',
+    use: 'Keychains, charms, loop ties',
+    swatch: '#c3c9b6',
+  },
+  {
+    fibre: 'Popcorn stitch',
+    detail: 'Groups of closed stitches popped forward in plush yarn. Adds dense tactile bobbles and three-dimensional character details.',
+    use: 'Plushie details, character accents',
     swatch: '#3d4a3a',
   },
 ];
 
-/** SWATCH LIBRARY — every stitch used. The most differentiating page
- *  on the site and the cheapest to produce: one afternoon of macro
- *  photography, six images. */
+/**
+ * SWATCH LIBRARY — every stitch used.
+ */
 export const swatches = [
-  { name: 'Shell', use: 'Edges, blankets', motif: 'shell' as const },
-  { name: 'Herringbone', use: 'Throws, texture', motif: 'herring' as const },
-  { name: 'Cable rib', use: 'Borders, wraps', motif: 'cable' as const },
-  { name: 'Granny stripe', use: 'Signature blanket', motif: 'granny' as const },
-  { name: 'Chain loop', use: 'Fine edging', motif: 'chain' as const },
-  { name: 'Popcorn', use: 'Shawl texture', motif: 'popcorn' as const },
+  { name: 'Shell', use: 'Hats, bag edgings, accents', motif: 'shell' as const },
+  { name: 'Herringbone', use: 'Structured bags, handles', motif: 'herring' as const },
+  { name: 'Cable rib', use: 'Hat brims, bag straps', motif: 'cable' as const },
+  { name: 'Granny stripe', use: 'Accent panels, plushie coats', motif: 'granny' as const },
+  { name: 'Chain loop', use: 'Keychains, charms, loops', motif: 'chain' as const },
+  { name: 'Popcorn', use: 'Character details, accents', motif: 'popcorn' as const },
 ];
 
 /**
  * TESTIMONIALS
- * Placeholders written in the site's voice so the layout is real.
- * Replace with real client words — recipient-side quotes convert
- * far better than maker-side ones.
  */
 export const testimonials = [
   {
@@ -243,34 +229,36 @@ export const testimonials = [
   },
   {
     quote:
-      'I had been told the twelve weeks would be difficult. I did not find it difficult. There were photographs at week four and week nine and I never once had to ask.',
+      'I had been told the eight weeks would be difficult. I did not find it difficult. There were photographs at week three and week six and I never once had to ask.',
     author: 'S. M.',
-    context: 'Anniversary commission, full Atelier tier',
+    context: 'Anniversary commission, Bespoke portrait pair',
   },
   {
     quote:
-      'The shawl is heavier than I expected and softer than I hoped. It has become the thing I reach for instead of a coat.',
+      'The bunny is heavier than I expected and dense in hand. It has become the thing that sits permanently on my desk.',
     author: 'K. I.',
-    context: 'Self-purchase, Heritage tier',
+    context: 'Self-purchase, The Signature Collection',
   },
 ];
 
-/** FAQ — written to remove the four objections that kill commission sales. */
+/**
+ * FAQ — objections addressed plainly.
+ */
 export const faq = [
   {
     q: 'How long does it actually take?',
-    a: 'Fourteen weeks for an Atelier commission, six for Heritage, three days for a Ready Gift. These are working times, not estimates. We do not open more slots than we can finish properly, which is why the atelier books out.',
+    a: 'Eight weeks for Bespoke, four weeks for The Signature Collection, one week for The Ready Gift. These are working times, not estimates. We do not open more slots than we can finish properly.',
   },
   {
     q: 'What if I am not sure what they would like?',
-    a: 'That is the normal case, and it is why the proof photographs exist. You see the finished piece, in daylight, at full resolution, before anything ships. Revisions to pattern and palette are unlimited before that point. After dispatch, we will mend anything that fails, for the life of the piece.',
+    a: 'That is the normal case, and it is why the photographic proof exists. You see the finished piece, in daylight, at full resolution, before anything ships. Details are adjusted before dispatch. After dispatch, we will mend anything that fails, for the life of the piece.',
   },
   {
     q: 'Do you ship, and how is it packed?',
-    a: 'Worldwide, insured, tracked. Every piece is folded rather than rolled — a roll leaves a crease through cashmere that does not come out. It ships in a cotton storage bag with a written care card and no pricing in the parcel.',
+    a: 'Worldwide, insured, tracked. Every piece is packed flat in protective tissue and ships in a cotton storage bag with a written care card and no pricing in the parcel.',
   },
   {
-    q: 'Is it worth this much?',
-    a: 'An Atelier blanket is three hundred and forty hours of one pair of hands. Compare it to the cheapest thing you would leave in a house for thirty years, and then decide. If the answer is that it is too much, the Heritage Collection exists and we would rather you took that than spent badly.',
+    q: 'Do you make blankets or throws?',
+    a: 'Heirloom blankets and throws in natural fibres are an upcoming expansion sold via waitlist only. Join the waitlist via WhatsApp to hear first when commission slots open. No deposit is taken and we do not quote advance pricing or delivery dates.',
   },
 ];

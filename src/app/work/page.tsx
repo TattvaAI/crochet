@@ -8,7 +8,7 @@ import { Price } from '@/components/currency';
 export const metadata: Metadata = {
   title: 'The Work',
   description:
-    'Bespoke crochet blankets, throws, shawls and wraps. Every piece with its material, hours, dimensions and price.',
+    'Small-batch crochet creatures and keepsakes. Every piece with its material, hours, dimensions and price.',
 };
 
 export default function WorkPage() {
@@ -91,7 +91,7 @@ export default function WorkPage() {
               <Reveal delay={0.15}>
                 <div className="mt-10 grid grid-cols-1 gap-6 border-y border-hairline py-6 md:grid-cols-6 md:gap-8 md:items-center">
                   <div>
-                    <p className="meta">Fibre</p>
+                    <p className="meta">Material</p>
                     <p className="mt-2 text-sm text-ink-soft">{p.material}</p>
                   </div>
                   <div>
@@ -159,7 +159,7 @@ export default function WorkPage() {
 
                     <dl className="flex flex-col gap-4">
                       {[
-                        ['Fibre', p1.material],
+                        ['Material', p1.material],
                         ['Hours on the hook', `${p1.hours} hrs`],
                         ['Dimensions', p1.dimensions],
                         ['Tier', tier1.name],
@@ -216,7 +216,7 @@ export default function WorkPage() {
 
                     <dl className="flex flex-col gap-4">
                       {[
-                        ['Fibre', p2.material],
+                        ['Material', p2.material],
                         ['Hours on the hook', `${p2.hours} hrs`],
                         ['Dimensions', p2.dimensions],
                         ['Tier', tier2.name],
@@ -291,7 +291,7 @@ export default function WorkPage() {
 
                     <dl className="flex flex-col gap-4">
                       {[
-                        ['Fibre', p.material],
+                        ['Material', p.material],
                         ['Hours on the hook', `${p.hours} hrs`],
                         ['Dimensions', p.dimensions],
                         ['Tier', tier.name],
@@ -380,7 +380,7 @@ export default function WorkPage() {
                           <Reveal delay={0.12 + idx * 0.05}>
                             <dl className="flex flex-col gap-3">
                               {[
-                                ['Fibre', p.material],
+                                ['Material', p.material],
                                 ['Hours on the hook', `${p.hours} hrs`],
                                 ['Dimensions', p.dimensions],
                                 ['Tier', tier.name],

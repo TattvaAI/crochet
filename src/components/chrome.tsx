@@ -71,8 +71,7 @@ export function Footer() {
             {site.name}
           </p>
           <p className="meta mt-4 max-w-xs leading-relaxed text-ground/70">
-            Hand-crochet heirlooms in natural fibre. Made to order, in India,
-            shipped worldwide.
+            Small-batch crochet, made to order in India. Shipped worldwide.
           </p>
         </div>
 

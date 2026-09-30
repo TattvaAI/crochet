@@ -44,9 +44,9 @@ export default function Home() {
 
             <Reveal delay={0.5}>
               <p className="mt-10 max-w-md text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
-                Cashmere, merino and silk, worked by hand over weeks. Not
+                Plush-touch yarn, worked by hand over weeks. Not
                 manufactured, not stocked in sizes. You tell us who it is for
-                and we make the one that will still be there in twenty years.
+                and we make the one that will stay with them.
               </p>
             </Reveal>
 
@@ -66,13 +66,13 @@ export default function Home() {
           <div className="md:col-span-5 lg:pt-20">
             <Reveal delay={0.3} y={28}>
               <Figure
-                src="/work/moss-granny.jpg"
-                alt="Undyed cashmere blanket in six graded tones, raking daylight"
+                src="/work/hero-bunny.jpg"
+                alt="White crochet bunny held up against a blue sky"
                 ratio="3 / 4"
-                tone="#24382c"
-                label="Moss · Undyed cashmere"
+                tone="#c3c9b6"
+                label="Cloud Bunny"
                 priority
-                index="340 hours"
+                index="12 hours"
               />
             </Reveal>
           </div>
@@ -82,9 +82,9 @@ export default function Home() {
         <div className="border-y border-hairline py-5">
           <div className="wrap flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
             {[
-              '340 hours, average Atelier piece',
-              'Undyed & hand-dyed fibre',
-              'Proofed by photograph before dispatch',
+              'Plush-touch yarn, sourced per piece',
+              'One maker, start to finish',
+              'Photographic proof before dispatch',
               'Shipped worldwide',
             ].map((line) => (
               <span key={line} className="meta flex items-center gap-3">
@@ -97,8 +97,8 @@ export default function Home() {
       </section>
 
       {/* ── THE LADDER ───────────────────────────────────────────
-          Hero+2 asymmetric grid. The Atelier commands full width
-          as the bespoke hero, with Heritage and Gift below. */}
+          Hero+2 asymmetric grid. The Ready Gift commands full width
+          as the introductory hero, with Signature and Bespoke below. */}
       <Section className="relative overflow-hidden">
         <StripeField className="opacity-40" />
         <div className="wrap relative">
@@ -119,7 +119,7 @@ export default function Home() {
 
             <div className="md:col-span-8">
               <div className="grid grid-cols-1 gap-px bg-hairline md:grid-cols-2">
-                {/* Hero tier: The Atelier */}
+                {/* Hero tier: The Ready Gift */}
                 <Reveal delay={0} as="article" className="md:col-span-2">
                   <div className="group relative flex h-full flex-col bg-ground p-7 transition-colors duration-500 hover:bg-ground-deep md:p-9">
                     <ColumnRule className="opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -145,14 +145,14 @@ export default function Home() {
                           href={`/commission/#${heroTier.id}`}
                           className="meta link mt-6 w-fit text-ink md:mt-8"
                         >
-                          {heroTier.id === 'gift' ? 'Ready to ship' : 'Enquire'}
+                          {heroTier.id === 'ready' ? 'Ready to ship' : 'Enquire'}
                         </Link>
                       </div>
                     </div>
                   </div>
                 </Reveal>
 
-                {/* Sub-tiers: Heritage and Ready Gift */}
+                {/* Sub-tiers: Signature and Bespoke */}
                 {subTiers.map((tier, i) => (
                   <Reveal key={tier.id} delay={(i + 1) * 0.08} as="article" className="md:col-span-1">
                     <div className="group relative flex h-full flex-col bg-ground p-7 transition-colors duration-500 hover:bg-ground-deep">
@@ -173,7 +173,7 @@ export default function Home() {
                         href={`/commission/#${tier.id}`}
                         className="meta link mt-auto w-fit pt-8 text-ink"
                       >
-                        {tier.id === 'gift' ? 'Ready to ship' : 'Enquire'}
+                        {tier.id === 'ready' ? 'Ready to ship' : 'Enquire'}
                       </Link>
                     </div>
                   </Reveal>
@@ -253,21 +253,20 @@ export default function Home() {
           <Reveal className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-center">
             <div className="order-2 md:order-1 md:col-span-7 md:pr-10">
               <Figure
-                src="/process/making.jpg"
-                alt="Hands working a crochet hook through a cashmere loop"
+                alt="Crochet hook working through plush yarn"
                 ratio="16 / 10"
                 tone="#c3c9b6"
                 label="On the hook"
-                caption="Studio, week nine"
+                caption="Studio progress"
               />
             </div>
             <div className="order-1 md:order-2 md:col-span-5">
               <Eyebrow>The making</Eyebrow>
               <h2 className="mt-6 text-[length:var(--text-title)]">
-                Fourteen weeks, and you will not have to ask.
+                Weeks of handwork, and you will not have to ask.
               </h2>
               <p className="mt-6 max-w-sm text-ink-soft">
-                Three progress photographs whether you request them or not. A
+                Progress photographs whether you request them or not. A
                 full-resolution proof before anything leaves the studio. This
                 is the part that makes a commission a commission.
               </p>
@@ -300,7 +299,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* ── FIBRE ───────────────────────────────────────────────
+      {/* ── STITCHES & MATERIALS ────────────────────────────────
           The ONE section retaining the equal-3-col gap-px bg-hairline
           grid family, strictly collapsing below 768px. */}
       <Section>
@@ -308,11 +307,11 @@ export default function Home() {
           <Reveal>
             <Eyebrow>What it is made of</Eyebrow>
             <h2 className="mt-6 max-w-2xl text-[length:var(--text-title)]">
-              Micron counts, not adjectives.
+              Plush-touch yarn and proven stitches.
             </h2>
             <p className="mt-6 max-w-lg text-ink-soft">
-              Anyone can call a blanket handmade. Here is exactly what is in
-              yours, where it came from, and how it will age.
+              Plush-touch yarn, sourced per piece. Here is how each stitch
+              behaves, where it is used, and how it holds up.
             </p>
           </Reveal>
 
@@ -340,7 +339,7 @@ export default function Home() {
               href="/materials/"
               className="meta link mt-10 inline-block text-ink"
             >
-              Full fibre and care notes
+              Full materials and care notes
             </Link>
           </Reveal>
         </div>
@@ -433,12 +432,12 @@ export default function Home() {
           <div className="order-2 md:order-1 md:col-span-5 lg:pt-6">
             <Reveal delay={0.15}>
               <Figure
-                src="/work/long-shawl.jpg"
-                alt="Long cashmere shawl in madder-dyed yarn"
+                src="/work/strawberry-hat.jpg"
+                alt="Red strawberry crochet hat worn by a girl, back view"
                 ratio="4 / 5"
-                tone="#3d4a3a"
-                label="The Long Shawl"
-                index="140 hrs"
+                tone="#a84444"
+                label="Strawberry Hat"
+                index="8 hrs"
               />
             </Reveal>
           </div>

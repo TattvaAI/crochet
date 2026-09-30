@@ -12,7 +12,7 @@ import { ImageResponse } from 'next/og';
  * Sized 1200x630 — the standard OG ratio.
  */
 export const runtime = 'edge';
-export const alt = 'Hand-crochet heirlooms in natural fibre — made once, for one person';
+export const alt = 'Small-batch crochet creatures and keepsakes — made once, for one person';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -113,8 +113,8 @@ export default async function OpenGraphImage() {
               lineHeight: 1.45,
             }}
           >
-            <span>Cashmere, merino and silk, worked by hand over weeks.</span>
-            <span>Commissions open — three tiers, prices on the page.</span>
+            <span>Plush-touch yarn, worked by hand over weeks.</span>
+            <span>Commissions open, three tiers, prices on the page.</span>
           </div>
 
           {/* Shell stitch, the site's signature motif.

@@ -19,7 +19,7 @@ import { ShellStitch, CableRib, GrannyStripe, Herringbone, ChainLoop } from '@/c
 export const metadata: Metadata = {
   title: 'Commission & Pricing',
   description:
-    'Three tiers of bespoke crochet commission. Prices, working times, and a calculator that tells you the last date to commission for a given delivery date.',
+    'Three tiers of crochet commission. Prices, working times, and a calculator that tells you the last date to commission for a given delivery date.',
 };
 
 const Motif = {
@@ -79,15 +79,15 @@ export default function CommissionPage() {
       </Section>
 
       {/* ── THE THREE TIERS ─────────────────────────────────── */}
-      {/* Tier 01: Atelier Asymmetric Flagship */}
+      {/* Tier 01: The Ready Gift */}
       {(() => {
-        const atelierTier = tiers[0]!;
+        const firstTier = tiers[0]!;
         const ladderTiers = tiers.slice(1);
         return (
           <>
             <Section
-              key={atelierTier.id}
-              id={atelierTier.id}
+              key={firstTier.id}
+              id={firstTier.id}
               className="relative overflow-hidden border-y border-hairline"
             >
               <div className="wrap relative">
@@ -96,30 +96,30 @@ export default function CommissionPage() {
                     <Reveal>
                       <div className="flex items-baseline gap-4">
                         <span className="font-display text-[1.5rem] tnum text-ink-mute">
-                          {atelierTier.index}
+                          {firstTier.index}
                         </span>
-                        <Eyebrow>{leadTimeLabel(atelierTier.days)} working time</Eyebrow>
+                        <Eyebrow>{leadTimeLabel(firstTier.days)} working time</Eyebrow>
                       </div>
                       <h2 className="mt-6 text-[length:var(--text-title)]">
-                        {atelierTier.name}
+                        {firstTier.name}
                       </h2>
                       <p className="mt-6 max-w-md text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
-                        {atelierTier.summary}
+                        {firstTier.summary}
                       </p>
                       <p className="mt-8 font-display text-[2.5rem] tnum">
-                        <Price inr={atelierTier.priceMin} /> —{' '}
-                        <Price inr={atelierTier.priceMax} />
+                        <Price inr={firstTier.priceMin} /> —{' '}
+                        <Price inr={firstTier.priceMax} />
                       </p>
                     </Reveal>
 
                     <Reveal delay={0.15}>
                       <div className="mt-10">
                         <Figure
-                          src="/work/moss-granny.jpg"
-                          alt={atelierTier.name}
+                          src="/work/keychains.jpg"
+                          alt="Grid of handmade strawberry, bow, and heart crochet keychains"
                           ratio="16 / 10"
-                          tone="#24382c"
-                          label={atelierTier.name}
+                          tone="#c3a8a8"
+                          label={firstTier.name}
                         />
                       </div>
                     </Reveal>
@@ -129,13 +129,13 @@ export default function CommissionPage() {
                     <Reveal delay={0.1}>
                       <div className="border-t border-hairline pt-7 md:border-t-0 md:pt-0">
                         <Eyebrow>Personalisation</Eyebrow>
-                        <p className="mt-4 text-ink-soft">{atelierTier.personalisation}</p>
+                        <p className="mt-4 text-ink-soft">{firstTier.personalisation}</p>
                       </div>
 
                       <div className="mt-10">
                         <Eyebrow>Included</Eyebrow>
                         <ul className="mt-5">
-                          {atelierTier.includes.map((item) => (
+                          {firstTier.includes.map((item) => (
                             <li
                               key={item}
                               className="flex gap-4 border-b border-hairline py-4 text-sm leading-relaxed text-ink-soft"
@@ -150,13 +150,13 @@ export default function CommissionPage() {
                       <div className="mt-10">
                         <Eyebrow>Available as</Eyebrow>
                         <p className="mt-4 text-ink-soft">
-                          {atelierTier.applies.join(' · ')}
+                          {firstTier.applies.join(' · ')}
                         </p>
                       </div>
 
                       <div className="mt-12">
                         <ButtonLink href="/contact/">
-                          Enquire — {atelierTier.name}
+                          Enquire — {firstTier.name}
                         </ButtonLink>
                       </div>
                     </Reveal>
@@ -195,13 +195,17 @@ export default function CommissionPage() {
                           <div className="mt-8">
                             <Figure
                               src={
-                                tier.id === 'heritage'
-                                  ? '/work/ash-herringbone.jpg'
-                                  : '/work/heirloom-wrap.jpg'
+                                tier.id === 'signature'
+                                  ? '/work/cow-plushie.jpg'
+                                  : '/work/dolls-pair.jpg'
                               }
-                              alt={tier.name}
+                              alt={
+                                tier.id === 'signature'
+                                  ? 'Pink and white crochet cow plushie'
+                                  : 'Pair of custom crochet portrait dolls'
+                              }
                               ratio="4 / 3"
-                              tone={tier.id === 'heritage' ? '#c3c9b6' : '#d9dcd2'}
+                              tone={tier.id === 'signature' ? '#e8d8d8' : '#d9dcd2'}
                               label={tier.name}
                             />
                           </div>
@@ -247,6 +251,35 @@ export default function CommissionPage() {
                 </div>
               </div>
             </Section>
+
+            {/* ── HEIRLOOM WAITLIST ───────────────────────────────── */}
+            <Section className="border-b border-hairline bg-ground">
+              <div className="wrap">
+                <Reveal>
+                  <div className="flex flex-col gap-6 md:flex-row md:items-baseline md:justify-between">
+                    <div>
+                      <Eyebrow>Future expansion</Eyebrow>
+                      <h2 className="mt-4 text-[length:var(--text-title)]">
+                        The Heirloom Atelier
+                      </h2>
+                      <p className="mt-4 max-w-xl text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
+                        Blankets and throws in natural fibres, opening soon.
+                      </p>
+                      <p className="mt-2 text-sm text-ink-mute">
+                        Waitlist members hear first. No deposit taken.
+                      </p>
+                    </div>
+                    <div className="mt-2 md:mt-0 shrink-0">
+                      <ButtonLink
+                        href="https://wa.me/917015229077?text=HEIRLOOM"
+                      >
+                        Join the waitlist
+                      </ButtonLink>
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+            </Section>
           </>
         );
       })()}
@@ -262,9 +295,9 @@ export default function CommissionPage() {
               Six stitches. No others.
             </h2>
             <p className="mt-6 max-w-lg text-ink-soft">
-              Every edge on this site is one of these. Nothing decorative, nothing
-              invented for effect — each one is structural, and each is worked by
-              hand every time.
+              Every piece on this site is worked in one of these stitches using
+              plush-touch yarn. Nothing decorative, nothing invented for effect —
+              each one is structural, and each is worked by hand every time.
             </p>
           </Reveal>
 
@@ -313,11 +346,11 @@ export default function CommissionPage() {
               },
               {
                 t: 'Revisions',
-                b: 'Unlimited on pattern, palette and dimensions until you approve the photographic proof. After dispatch, alterations are quoted separately.',
+                b: 'Adjustments to character features, palette, and dimensions are reviewed before proof approval. After dispatch, alterations are quoted separately.',
               },
               {
                 t: 'Gifting',
-                b: 'Folded in tissue, cotton storage bag, hand-written care card. No price, no invoice, and no name of the giver anywhere in the parcel unless you ask for one.',
+                b: 'Packed flat in tissue, cotton storage bag, hand-written care card. No price, no invoice, and no name of the giver anywhere in the parcel unless you ask for one.',
               },
               {
                 t: 'Aftercare',

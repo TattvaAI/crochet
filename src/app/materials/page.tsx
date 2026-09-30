@@ -5,27 +5,27 @@ import { Reveal } from '@/components/motion';
 import { CableRib } from '@/components/stitch';
 
 export const metadata: Metadata = {
-  title: 'Fibre & Care',
+  title: 'Materials & Care',
   description:
-    'Cashmere, merino, silk, undyed flock, cotton and linen — micron counts, provenance, and how to make a hand-crocheted piece last thirty years.',
+    'Plush-touch yarn, sourced per piece. How stitches are constructed and how to make a hand-crocheted piece last.',
 };
 
 const care = [
   {
-    t: 'Wash',
-    b: 'Cold water, wool detergent, no wringing. Press the water out with both hands. Never machine-wash cashmere, even on a delicate cycle — the agitation is what felts it, not the heat.',
+    t: 'Clean',
+    b: 'Spot clean with cool water and mild soap where possible. If washing fully, hand wash gently in cool water with no wringing. Press water out flat between clean towels.',
   },
   {
     t: 'Dry',
-    b: 'Flat, on a dry towel, reshaped to the original measurements. Never hung: a wet wool shawl stretches under its own weight and will not come back. Move it. Turn it. Check it daily.',
+    b: 'Flat, on a clean dry towel, reshaped to the original contours. Never hung: wet crochet stretches under gravity. Dry in the shade away from direct heat.',
   },
   {
     t: 'Store',
-    b: 'Folded, never rolled or hung. Cotton or acid-free tissue between folds. Never plastic for long periods. Merino and cashmere need air; moths and mildew both prefer sealed dark.',
+    b: 'Kept clean in a breathable cotton storage bag. Store away from direct sunlight and damp conditions so colours and plush pile stay true.',
   },
   {
-    t: 'Restore',
-    b: 'Wash sparingly. A cashmere blanket used as a throw, not a blanket, needs washing perhaps once a year. Surface pilling is normal and can be removed with a cashmere comb — send it back to us and we will do it free.',
+    t: 'Repair',
+    b: 'We mend anything that fails, for the life of the piece. If joinery or stitching ever weakens, send it back to the studio and we repair our own work free of charge.',
   },
 ];
 
@@ -35,18 +35,19 @@ export default function MaterialsPage() {
       <section className="wrap pt-16 pb-12 md:pt-24">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div className="md:col-span-7">
-            <Eyebrow>Fibre & care</Eyebrow>
+            <Eyebrow>Materials & care</Eyebrow>
             <h1 className="mt-8 text-[length:var(--text-display)]">
-              Micron counts,
+              Plush-touch yarn,
               <br />
-              not adjectives.
+              sourced per piece.
             </h1>
           </div>
           <div className="md:col-span-5 md:pt-16">
             <Reveal delay={0.2}>
               <p className="max-w-sm text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
-                Anyone can call a blanket handmade and natural. This is what is
-                actually in yours, where it came from, and how it will age.
+                Every piece is worked in plush-touch yarn selected specifically
+                for that commission. This is how each stitch behaves, where it
+                is used, and how to care for it.
               </p>
             </Reveal>
           </div>
@@ -96,8 +97,7 @@ export default function MaterialsPage() {
         </div>
       </Section>
 
-      {/* Sourcing note. Provenance is what separates a fibre house
-          from a maker who buys whatever is on sale. */}
+      {/* Sourcing note */}
       <Section className="border-y border-hairline bg-ground-deep">
         <div className="wrap">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-12">
@@ -105,7 +105,7 @@ export default function MaterialsPage() {
               <Reveal>
                 <Eyebrow>Where it comes from</Eyebrow>
                 <h2 className="mt-6 text-[length:var(--text-title)]">
-                  Two mills, one spinner, one dye house.
+                  Yarn sourced to order, per piece.
                 </h2>
               </Reveal>
             </div>
@@ -113,10 +113,10 @@ export default function MaterialsPage() {
               <Reveal delay={0.1}>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
                   {[
-                    ['Spinning', 'Grade A cashmere from Mule’s Fiber, Inner Mongolia. 15.5 micron, combed, not carded. Traceable to the lot number on the label.'],
-                    ['Mulesing-free merino', '18.5 micron from a single New Zealand mill, ZQ-certified. We buy the whole lot so a commission can be matched across years.'],
-                    ['Silk', 'Mulberry and bomby spun for crochet, not weaving. A tighter twist is the difference between a wrap that drapes and one that slides off the shoulder.'],
-                    ['Dyeing', 'Madder root, indigo and walnut in vats of twenty skeins. Expect variation between batches — it is the reason we use them.'],
+                    ['Yarn selection', 'Plush-touch yarn chosen per commission for hand-feel, stitch definition, and durability. Sourced per piece in small quantities.'],
+                    ['Colourways', 'Solid tones and custom palettes matched to your brief or reference photos before hooking begins.'],
+                    ['Hardware', 'Solid brass keyrings, secure split rings, and reinforced joinery chosen to withstand daily carry.'],
+                    ['Filling', 'Clean hypoallergenic stuffing, packed firmly so plushies retain their shape over years of handling.'],
                   ].map(([k, v]) => (
                     <div
                       key={k}
@@ -141,7 +141,7 @@ export default function MaterialsPage() {
           <Reveal>
             <Eyebrow>Care</Eyebrow>
             <h2 className="mt-6 max-w-2xl text-[length:var(--text-title)]">
-              Thirty years is the target, and it is achievable.
+              Made to be kept and handled.
             </h2>
           </Reveal>
 
@@ -176,11 +176,11 @@ export default function MaterialsPage() {
         <div className="wrap-narrow text-center">
           <Reveal>
             <h2 className="text-[length:var(--text-title)]">
-              Ask what a fibre is for before you pay for it.
+              Ask about materials before you commission.
             </h2>
             <p className="mx-auto mt-8 max-w-md text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
-              If you are not sure which tier or which fibre suits the person,
-              write anyway. That is the first thing we will talk about.
+              If you are not sure which tier or yarn colourway suits the person,
+              write anyway. That is the first thing we discuss.
             </p>
             <div className="mt-12 flex justify-center">
               <ButtonLink href="/contact/">Enquire</ButtonLink>

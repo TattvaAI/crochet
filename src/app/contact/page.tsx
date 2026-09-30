@@ -114,12 +114,11 @@ export default function ContactPage() {
             <div className="md:col-span-5">
               <Reveal delay={0.1}>
                 <Figure
-                  src="/process/dispatch.jpg"
-                  alt="A finished blanket folded with a hand-written care card"
+                  alt="A finished order packed with a hand-written care card"
                   ratio="16 / 10"
                   tone="#d9dcd2"
                   label="How it arrives"
-                  caption="Folded, never rolled"
+                  caption="Packed with care"
                 />
               </Reveal>
             </div>
@@ -127,9 +126,9 @@ export default function ContactPage() {
 
           <div className="mt-14 border-t border-hairline">
             {[
-              ['The date', 'The single most important field. It determines the tier, the fibre, and whether we are free.'],
-              ['Who it is for', 'Not their name — who they are. A mother, a new home, someone who already owns too much.'],
-              ['Where it will live', 'A sofa gets a denser stitch than a bed. Wool, sunlight and washing frequency all change the brief.'],
+              ['The date', 'The single most important field. It determines the tier, the materials, and whether we are free.'],
+              ['Who it is for', 'Not their name — who they are. A friend, a collector, someone who already owns too much.'],
+              ['What you have in mind', 'A character, a photograph, or an accessory from the collection. Dimensions and palette help set the brief.'],
             ].map(([k, v], i) => (
               <Reveal key={k} delay={i * 0.06}>
                 <div className="grid grid-cols-1 border-b border-hairline py-7 md:grid-cols-12 md:gap-8 md:items-baseline">

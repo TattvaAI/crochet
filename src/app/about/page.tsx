@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { site } from '@/lib/site';
 import { Section, Eyebrow, Divider, Figure, ButtonLink, Chain } from '@/components/ui';
 import { Reveal } from '@/components/motion';
 import { CableRib } from '@/components/stitch';
@@ -7,13 +6,13 @@ import { CableRib } from '@/components/stitch';
 export const metadata: Metadata = {
   title: 'The Maker',
   description:
-    'One pair of hands, a small studio, and a working method built on long lead times and photographic proof before dispatch.',
+    'One pair of hands, a small studio in India, and a working method built on steady lead times and photographic proof before dispatch.',
 };
 
 const beliefs = [
   {
     t: 'Refuse more than you can finish',
-    b: 'There are two or three Atelier slots per quarter. Closing the book is not a marketing tactic — it is the only way a fourteen-week piece is ever actually fourteen weeks.',
+    b: 'There are limited Bespoke slots each quarter. Closing the book is not a marketing tactic — it is the only way an eight-week piece is finished properly.',
   },
   {
     t: 'No price on the page, no price in the parcel',
@@ -21,7 +20,7 @@ const beliefs = [
   },
   {
     t: 'The proof before the parcel',
-    b: 'Every piece is photographed finished, blocked, and in daylight at full resolution, and approved before it ships. It removes the single largest source of anxiety in buying a gift for someone else.',
+    b: 'Every piece is photographed finished, shaped, and in daylight at full resolution, and approved before it ships. It removes the single largest source of anxiety in buying a gift for someone else.',
   },
   {
     t: 'Mend it for its life',
@@ -50,11 +49,10 @@ export default function AboutPage() {
           <div className="md:col-span-5 md:col-start-8">
             <Reveal delay={0.2}>
               <Figure
-                src="/about/maker.jpg"
-                alt="The maker at the studio table, working in daylight"
+                alt="Studio table and crochet tools in daylight"
                 ratio="4 / 5"
                 tone="#d9dcd2"
-                label="Studio portrait"
+                label="Studio"
                 priority
               />
             </Reveal>
@@ -73,8 +71,8 @@ export default function AboutPage() {
               <div className="md:col-span-9 flex flex-col gap-8">
                 {[
                   'I learned this from a grandmother who made everything in the house and considered buying it a moral failing. There was no studio, no pricing, and no way to return anything.',
-                  'What survived of that is the working method, not the scale. A long lead time. Fibre chosen before it is needed. And a rule that a piece is not finished until it has been photographed and looked at properly — the same way it would be judged in person.',
-                  'The website is new. The work is not. Everything photographed on this site was made in this studio, by hand, on this table.',
+                  'What survived of that is the working method, not the scale. A steady lead time. Yarn chosen before it is needed. And a rule that a piece is not finished until it has been photographed and looked at properly — the same way it would be judged in person.',
+                  'The website is new. The work is not. Everything photographed on this site was made in this studio in India, by hand, on this table.',
                 ].map((para) => (
                   <p key={para} className="font-display text-[1.6rem] leading-[1.3] tracking-[-0.01em]">
                     {para}
@@ -86,20 +84,18 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Portrait of the work, not the room. Avoids the stock-photo
-          "bright airy workspace" cliché entirely. */}
+      {/* Working method */}
       <Section className="border-y border-hairline bg-ground-deep">
         <div className="wrap">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 items-center">
             <div className="md:col-span-8">
               <Reveal>
                 <Figure
-                  src="/process/making.jpg"
-                  alt="A crochet hook mid-stitch through cashmere loop"
+                  alt="A crochet hook working through plush yarn"
                   ratio="16 / 10"
                   tone="#c3c9b6"
-                  label="Mid-stitch"
-                  caption="Week nine of a fourteen-week blanket"
+                  label="On the hook"
+                  caption="Work in progress in the studio"
                 />
               </Reveal>
             </div>
@@ -107,11 +103,11 @@ export default function AboutPage() {
               <Reveal delay={0.1}>
                 <Eyebrow>Working method</Eyebrow>
                 <p className="mt-6 leading-relaxed text-ink-soft">
-                  The hook is 4.0mm. Tension is checked at the start of every row
-                  and the piece is measured before it is ever blocked. Yarn is
-                  ordered in and left to rest for a fortnight before it is used —
-                  new yarn works tighter than rested yarn, and that is how a
-                  blanket ends up a centimetre short.
+                  The hook is matched to the piece. Tension is checked
+                  continuously and every piece is measured and shaped. Yarn is
+                  ordered in and left to rest before it is hooked — rested yarn
+                  works more predictably than fresh skeins, ensuring consistent
+                  stitch density.
                 </p>
               </Reveal>
             </div>
@@ -165,14 +161,14 @@ export default function AboutPage() {
                   The book is small on purpose.
                 </h2>
                 <p className="mt-8 max-w-md text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
-                  Two Atelier slots remain this quarter. Everything else is
-                  Heritage and Ready Gift, which run in rotation.
+                  Two Bespoke slots remain this quarter. Everything else is
+                  The Signature Collection and The Ready Gift, which run in rotation.
                 </p>
                 <ul className="mt-10">
                   {[
-                    'Atelier — 1 slot remaining',
-                    'Heritage — accepting',
-                    'Ready Gift — in stock',
+                    'Bespoke — 1 slot remaining',
+                    'The Signature Collection — accepting',
+                    'The Ready Gift — in stock',
                   ].map((line) => (
                     <li
                       key={line}
@@ -193,12 +189,12 @@ export default function AboutPage() {
             <div className="md:col-span-5 md:pt-6">
               <Reveal delay={0.12}>
                 <Figure
-                  src="/work/seafoam-square.jpg"
-                  alt="Merino-silk throw in seafoam"
+                  src="/work/bow-bag.jpg"
+                  alt="Handmade crochet bow bag in brown plush yarn"
                   ratio="3 / 4"
-                  tone="#9fb3a8"
+                  tone="#8b7d6b"
                   label="In the studio"
-                  index="96 hrs"
+                  index="18 hrs"
                 />
               </Reveal>
             </div>
