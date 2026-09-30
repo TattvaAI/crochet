@@ -45,7 +45,7 @@ export default function CommissionPage() {
             </h1>
           </div>
           <div className="md:col-span-5 md:pt-16">
-            <Reveal delay={0.2}>
+            <Reveal delay={0.2} immediate>
               <p className="max-w-sm text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
                 Hiding prices filters out the people who were never going to
                 pay. These are the real numbers, the real working times, and

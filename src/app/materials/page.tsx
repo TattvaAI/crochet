@@ -43,7 +43,7 @@ export default function MaterialsPage() {
             </h1>
           </div>
           <div className="md:col-span-5 md:pt-16">
-            <Reveal delay={0.2}>
+            <Reveal delay={0.2} immediate>
               <p className="max-w-sm text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
                 Every piece is worked in plush-touch yarn selected specifically
                 for that commission. This is how each stitch behaves, where it

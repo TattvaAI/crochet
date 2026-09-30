@@ -85,7 +85,7 @@ export default function ContactPage() {
           </div>
 
           <div className="md:col-span-5 md:col-start-8 lg:col-span-5 lg:col-start-8">
-            <Reveal delay={0.15}>
+            <Reveal delay={0.15} immediate>
               <div className="border border-hairline p-8 md:p-10">
                 <Eyebrow>The form</Eyebrow>
                 <h2 className="mt-6 font-display text-[2.25rem] leading-none">

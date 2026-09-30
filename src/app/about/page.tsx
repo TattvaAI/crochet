@@ -47,7 +47,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="md:col-span-5 md:col-start-8">
-            <Reveal delay={0.2}>
+            <Reveal delay={0.2} immediate>
               <Figure
                 alt="Studio table and crochet tools in daylight"
                 ratio="4 / 5"

@@ -42,7 +42,7 @@ export default function Home() {
               <MaskLines lines={['Made once,', 'for one person.']} />
             </h1>
 
-            <Reveal delay={0.5}>
+            <Reveal delay={0.5} immediate>
               <p className="mt-10 max-w-md text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
                 Plush-touch yarn, worked by hand over weeks. Not
                 manufactured, not stocked in sizes. You tell us who it is for
@@ -50,7 +50,7 @@ export default function Home() {
               </p>
             </Reveal>
 
-            <Reveal delay={0.65}>
+            <Reveal delay={0.65} immediate>
               <div className="mt-12 flex flex-wrap items-center gap-4">
                 <ButtonLink href="/commission/">Commission a piece</ButtonLink>
                 <ButtonLink href="/work/" variant="ghost">
@@ -64,7 +64,7 @@ export default function Home() {
               width — an off-centre crop is what separates an
               editorial page from a template. */}
           <div className="md:col-span-5 lg:pt-20">
-            <Reveal delay={0.3} y={28}>
+            <Reveal delay={0.3} y={28} immediate>
               <Figure
                 src="/work/hero-bunny.jpg"
                 alt="White crochet bunny held up against a blue sky"

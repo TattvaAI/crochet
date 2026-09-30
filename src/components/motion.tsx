@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, useInView, useAnimation } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import type { ReactNode } from 'react';
 
 /**
@@ -11,21 +12,68 @@ import type { ReactNode } from 'react';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+// Backstop interval: if the scroll observer never fires for a
+// near-viewport element (background tab, extension interference,
+// browser quirk), content still appears instead of blanking the
+// page forever. Below-fold entrances are unaffected — they reveal
+// via the observer when scrolled to, long before this matters.
+const SAFETY_MS = 2500;
+
 export function Reveal({
   children,
   delay = 0,
   y = 20,
   className,
   as = 'div',
+  /** Above-the-fold content animates on mount instead of waiting
+   *  for the scroll observer — first paint must never depend on it. */
+  immediate = false,
 }: {
   children: ReactNode;
   delay?: number;
   y?: number;
   className?: string;
   as?: 'div' | 'section' | 'li' | 'article' | 'header' | 'figure';
+  immediate?: boolean;
 }) {
   const reduce = useReducedMotion();
+  const ref = useRef<any>(null);
+  const inView = useInView(ref, { once: true, margin: '-12% 0px -8% 0px' });
+  const controls = useAnimation();
+  const revealed = useRef(false);
   const M = motion[as];
+
+  useEffect(() => {
+    if (reduce || revealed.current) return;
+    if (immediate || inView) {
+      revealed.current = true;
+      controls.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 1, delay, ease: EASE },
+      });
+    }
+  }, [reduce, immediate, inView, controls, delay]);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      if (revealed.current || !ref.current) return;
+      if (ref.current.getBoundingClientRect().top < window.innerHeight * 1.5) {
+        revealed.current = true;
+        controls.start({
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.6, ease: EASE },
+        });
+        clearInterval(t);
+      }
+    }, 1000);
+    const hardStop = setTimeout(() => clearInterval(t), SAFETY_MS * 4);
+    return () => {
+      clearInterval(t);
+      clearTimeout(hardStop);
+    };
+  }, [controls]);
 
   if (reduce) {
     return <M className={className}>{children}</M>;
@@ -33,11 +81,10 @@ export function Reveal({
 
   return (
     <M
+      ref={ref}
       className={className}
       initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-12% 0px -8% 0px' }}
-      transition={{ duration: 1, delay, ease: EASE }}
+      animate={controls}
     >
       {children}
     </M>
