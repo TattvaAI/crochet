@@ -85,8 +85,7 @@ export default function ContactPage() {
           </div>
 
           <div className="md:col-span-5 md:col-start-8 lg:col-span-5 lg:col-start-8">
-            <Reveal delay={0.15} immediate>
-              <div className="border border-hairline p-8 md:p-10">
+            <div className="enter border border-hairline p-8 md:p-10" style={{ '--d': '0.15s' } as React.CSSProperties}>
                 <Eyebrow>The form</Eyebrow>
                 <h2 className="mt-6 font-display text-[2.25rem] leading-none">
                   Four fields and a date.
@@ -94,8 +93,7 @@ export default function ContactPage() {
                 <div className="mt-10">
                   <EnquiryForm />
                 </div>
-              </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>

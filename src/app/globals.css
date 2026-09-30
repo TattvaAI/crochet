@@ -224,3 +224,42 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ── JS-independent entrances ────────────────────────────────────
+   Above-fold content animates with pure CSS so first paint never
+   depends on JavaScript executing. Blocked chunks, slow networks,
+   disabled JS: the entrance still plays, bounded by stylesheet
+   parse instead of bundle boot. Without CSS the content is fully
+   visible — animation is enhancement, never a gate. */
+@keyframes enter-fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--enter-y, 20px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes enter-mask-rise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.enter {
+  opacity: 0;
+  animation: enter-fade-rise 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+.enter-mask {
+  display: block;
+  overflow: hidden;
+}
+.enter-mask > span {
+  display: block;
+  transform: translateY(110%);
+  animation: enter-mask-rise 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

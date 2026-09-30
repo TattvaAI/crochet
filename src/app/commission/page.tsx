@@ -45,13 +45,11 @@ export default function CommissionPage() {
             </h1>
           </div>
           <div className="md:col-span-5 md:pt-16">
-            <Reveal delay={0.2} immediate>
-              <p className="max-w-sm text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
+            <p className="enter max-w-sm text-[length:var(--text-lede)] leading-relaxed text-ink-soft" style={{ '--d': '0.2s' } as React.CSSProperties}>
                 Hiding prices filters out the people who were never going to
                 pay. These are the real numbers, the real working times, and
                 what is included.
               </p>
-            </Reveal>
           </div>
         </div>
       </section>

@@ -43,13 +43,11 @@ export default function MaterialsPage() {
             </h1>
           </div>
           <div className="md:col-span-5 md:pt-16">
-            <Reveal delay={0.2} immediate>
-              <p className="max-w-sm text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
+            <p className="enter max-w-sm text-[length:var(--text-lede)] leading-relaxed text-ink-soft" style={{ '--d': '0.2s' } as React.CSSProperties}>
                 Every piece is worked in plush-touch yarn selected specifically
                 for that commission. This is how each stitch behaves, where it
                 is used, and how to care for it.
               </p>
-            </Reveal>
           </div>
         </div>
       </section>

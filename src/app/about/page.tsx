@@ -47,7 +47,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="md:col-span-5 md:col-start-8">
-            <Reveal delay={0.2} immediate>
+            <div className="enter" style={{ '--d': '0.2s' } as React.CSSProperties}>
               <Figure
                 alt="Studio table and crochet tools in daylight"
                 ratio="4 / 5"
@@ -55,7 +55,7 @@ export default function AboutPage() {
                 label="Studio"
                 priority
               />
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>

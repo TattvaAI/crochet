@@ -13,7 +13,7 @@ import {
   ColumnRule,
   Chain,
 } from '@/components/ui';
-import { Reveal, MaskLines, Fade } from '@/components/motion';
+import { Reveal } from '@/components/motion';
 import { Price } from '@/components/currency';
 import { ShellStitch, CableRib } from '@/components/stitch';
 
@@ -32,39 +32,45 @@ export default function Home() {
       <section className="relative">
         <div className="wrap grid grid-cols-1 gap-12 pt-16 pb-20 md:grid-cols-12 md:gap-8 md:pt-24 md:pb-28">
           <div className="md:col-span-7 lg:pt-10">
-            <Fade delay={0.1}>
+            <div className="enter" style={{ '--d': '0.1s' } as React.CSSProperties}>
               <Eyebrow>
                 {site.location} · Est. 2019
               </Eyebrow>
-            </Fade>
+            </div>
 
             <h1 className="mt-8 text-[length:var(--text-display)]">
-              <MaskLines lines={['Made once,', 'for one person.']} />
+              <span className="enter-mask" aria-hidden="true">
+                <span style={{ animationDelay: '0.15s' }}>Made once,</span>
+              </span>
+              <span className="enter-mask" aria-hidden="true">
+                <span style={{ animationDelay: '0.26s' }}>for one person.</span>
+              </span>
+              <span className="sr-only">Made once, for one person.</span>
             </h1>
 
-            <Reveal delay={0.5} immediate>
-              <p className="mt-10 max-w-md text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
+            <div className="enter mt-10 max-w-md" style={{ '--d': '0.5s' } as React.CSSProperties}>
+              <p className="text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
                 Plush-touch yarn, worked by hand over weeks. Not
                 manufactured, not stocked in sizes. You tell us who it is for
                 and we make the one that will stay with them.
               </p>
-            </Reveal>
+            </div>
 
-            <Reveal delay={0.65} immediate>
-              <div className="mt-12 flex flex-wrap items-center gap-4">
+            <div className="enter mt-12 flex flex-wrap items-center gap-4" style={{ '--d': '0.65s' } as React.CSSProperties}>
+              <div className="flex flex-wrap items-center gap-4">
                 <ButtonLink href="/commission/">Commission a piece</ButtonLink>
                 <ButtonLink href="/work/" variant="ghost">
                   See the work
                 </ButtonLink>
               </div>
-            </Reveal>
+            </div>
           </div>
 
           {/* Hero image. Deliberately NOT centred, and not full
               width — an off-centre crop is what separates an
               editorial page from a template. */}
           <div className="md:col-span-5 lg:pt-20">
-            <Reveal delay={0.3} y={28} immediate>
+            <div className="enter" style={{ '--d': '0.3s', '--enter-y': '28px' } as React.CSSProperties}>
               <Figure
                 src="/work/hero-bunny.jpg"
                 alt="White crochet bunny held up against a blue sky"
@@ -74,7 +80,7 @@ export default function Home() {
                 priority
                 index="12 hours"
               />
-            </Reveal>
+            </div>
           </div>
         </div>
 
