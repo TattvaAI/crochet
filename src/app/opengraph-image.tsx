@@ -21,12 +21,8 @@ export default async function OpenGraphImage() {
   // face is passed explicitly. It is the same self-hosted file the
   // site already serves — no third-party request, and the share card
   // stays visually identical to the page.
-  //
-  // It must be the .ttf, not the .woff2: Satori's font parser rejects
-  // WOFF2 with "Unsupported OpenType signature wOF2". The .ttf in
-  // public/fonts is the same typeface, uncompressed, used only here.
   const display = await fetch(
-    new URL('../../public/fonts/instrument-serif-regular.ttf', import.meta.url),
+    new URL('../../public/fonts/cormorant-500.woff2', import.meta.url),
   )
     .then((res) => res.arrayBuffer())
     .catch(() => null);
@@ -40,7 +36,7 @@ export default async function OpenGraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#f4f1ea',
+          backgroundColor: '#eef0ea',
           padding: '68px 76px',
           fontFamily: 'Georgia, "Times New Roman", serif',
           position: 'relative',
@@ -54,7 +50,7 @@ export default async function OpenGraphImage() {
             inset: 0,
             display: 'flex',
             backgroundImage:
-              'repeating-linear-gradient(-45deg, rgba(26,23,20,0.028) 0px, rgba(26,23,20,0.028) 1px, transparent 1px, transparent 9px)',
+              'repeating-linear-gradient(-45deg, rgba(22,36,27,0.028) 0px, rgba(22,36,27,0.028) 1px, transparent 1px, transparent 9px)',
           }}
         />
 
@@ -65,13 +61,13 @@ export default async function OpenGraphImage() {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            fontFamily: 'Inter, system-ui, sans-serif',
+            fontFamily: 'Satoshi, system-ui, sans-serif',
             fontSize: 20,
             letterSpacing: '0.18em',
-            color: '#4a443c',
+            color: '#45524b',
           }}
         >
-          <span style={{ color: '#1a1714' }}>CROCH—IT</span>
+          <span style={{ color: '#16241b' }}>MOR</span>
           <span>INDIA · SHIPPING WORLDWIDE</span>
         </div>
 
@@ -85,11 +81,11 @@ export default async function OpenGraphImage() {
             <div
               key={line}
               style={{
-                fontFamily: display ? 'InstrumentSerif' : 'Georgia, serif',
+                fontFamily: display ? 'Cormorant' : 'Georgia, serif',
                 fontSize: 108,
                 lineHeight: 1.02,
                 letterSpacing: '-0.02em',
-                color: '#1a1714',
+                color: '#16241b',
               }}
             >
               {line}
@@ -111,9 +107,9 @@ export default async function OpenGraphImage() {
               display: 'flex',
               flexDirection: 'column',
               gap: 6,
-              fontFamily: 'Inter, system-ui, sans-serif',
+              fontFamily: 'Satoshi, system-ui, sans-serif',
               fontSize: 25,
-              color: '#4a443c',
+              color: '#45524b',
               lineHeight: 1.45,
             }}
           >
@@ -132,7 +128,7 @@ export default async function OpenGraphImage() {
             fill="none"
             style={{ display: 'flex' }}
           >
-            <g stroke="#7d2b23" strokeWidth="1.6">
+            <g stroke="#a67c00" strokeWidth="1.6">
               {[0, 100, 200, 300].map((x) => (
                 <g key={x}>
                   <path d={`M${x + 20} 34 L${x + 20} 12`} />
@@ -153,10 +149,10 @@ export default async function OpenGraphImage() {
       fonts: display
         ? [
             {
-              name: 'InstrumentSerif',
+              name: 'Cormorant',
               data: display,
               style: 'normal' as const,
-              weight: 400 as const,
+              weight: 500 as const,
             },
           ]
         : undefined,

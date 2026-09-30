@@ -33,8 +33,8 @@ export default function MaterialsPage() {
   return (
     <>
       <section className="wrap pt-16 pb-12 md:pt-24">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+          <div className="md:col-span-7">
             <Eyebrow>Fibre & care</Eyebrow>
             <h1 className="mt-8 text-[length:var(--text-display)]">
               Micron counts,
@@ -42,7 +42,7 @@ export default function MaterialsPage() {
               not adjectives.
             </h1>
           </div>
-          <div className="lg:col-span-5 lg:pt-16">
+          <div className="md:col-span-5 md:pt-16">
             <Reveal delay={0.2}>
               <p className="max-w-sm text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
                 Anyone can call a blanket handmade and natural. This is what is
@@ -53,31 +53,45 @@ export default function MaterialsPage() {
         </div>
       </section>
 
+      {/* 2-col card grid with varied ratios */}
       <Section className="pt-0">
         <div className="wrap">
-          <div className="border-t border-hairline">
-            {materials.map((m, i) => (
-              <Reveal key={m.fibre} delay={(i % 2) * 0.05}>
-                <div className="grid gap-6 border-b border-hairline py-12 md:grid-cols-12 md:gap-8">
-                  <div className="md:col-span-1">
-                    <span
-                      aria-hidden="true"
-                      className="block h-10 w-10"
-                      style={{ backgroundColor: m.swatch }}
-                    />
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
+            {materials.map((m, i) => {
+              const spanClass =
+                i === 0
+                  ? 'md:col-span-7'
+                  : i === 1
+                    ? 'md:col-span-5'
+                    : i === 2
+                      ? 'md:col-span-5'
+                      : i === 3
+                        ? 'md:col-span-7'
+                        : 'md:col-span-6';
+
+              return (
+                <Reveal key={m.fibre} delay={(i % 2) * 0.06} className={spanClass}>
+                  <div className="h-full border border-hairline bg-ground p-8 md:p-10 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-4">
+                        <span
+                          aria-hidden="true"
+                          className="block h-10 w-10 shrink-0"
+                          style={{ backgroundColor: m.swatch }}
+                        />
+                        <p className="meta">{m.use}</p>
+                      </div>
+                      <h2 className="mt-8 font-display text-[2.25rem] leading-none">
+                        {m.fibre}
+                      </h2>
+                    </div>
+                    <p className="mt-6 leading-relaxed text-ink-soft">
+                      {m.detail}
+                    </p>
                   </div>
-                  <div className="md:col-span-4">
-                    <h2 className="font-display text-[2.25rem] leading-none">
-                      {m.fibre}
-                    </h2>
-                    <p className="meta mt-4">{m.use}</p>
-                  </div>
-                  <div className="md:col-span-6 md:col-start-7">
-                    <p className="leading-relaxed text-ink-soft">{m.detail}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </Section>
@@ -85,37 +99,39 @@ export default function MaterialsPage() {
       {/* Sourcing note. Provenance is what separates a fibre house
           from a maker who buys whatever is on sale. */}
       <Section className="border-y border-hairline bg-ground-deep">
-        <div className="wrap grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <Reveal>
-              <Eyebrow>Where it comes from</Eyebrow>
-              <h2 className="mt-6 text-[length:var(--text-title)]">
-                Two mills, one spinner, one dye house.
-              </h2>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-6 lg:col-start-7">
-            <Reveal delay={0.1}>
-              <ul>
-                {[
-                  ['Spinning', 'Grade A cashmere from Mule’s Fiber, Inner Mongolia. 15.5 micron, combed, not carded. Traceable to the lot number on the label.'],
-                  ['Mulesing-free merino', '18.5 micron from a single New Zealand mill, ZQ-certified. We buy the whole lot so a commission can be matched across years.'],
-                  ['Silk', 'Mulberry and bomby spun for crochet, not weaving. A tighter twist is the difference between a wrap that drapes and one that slides off the shoulder.'],
-                  ['Dyeing', 'Madder root, indigo and walnut in vats of twenty skeins. Expect variation between batches — it is the reason we use them.'],
-                ].map(([k, v]) => (
-                  <li
-                    key={k}
-                    className="flex gap-5 border-b border-hairline py-6 first:border-t"
-                  >
-                    <Chain className="mt-1.5 opacity-60" />
-                    <div>
-                      <p className="meta">{k}</p>
-                      <p className="mt-2 leading-relaxed text-ink-soft">{v}</p>
+        <div className="wrap">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-12">
+            <div className="md:col-span-5">
+              <Reveal>
+                <Eyebrow>Where it comes from</Eyebrow>
+                <h2 className="mt-6 text-[length:var(--text-title)]">
+                  Two mills, one spinner, one dye house.
+                </h2>
+              </Reveal>
+            </div>
+            <div className="md:col-span-7">
+              <Reveal delay={0.1}>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+                  {[
+                    ['Spinning', 'Grade A cashmere from Mule’s Fiber, Inner Mongolia. 15.5 micron, combed, not carded. Traceable to the lot number on the label.'],
+                    ['Mulesing-free merino', '18.5 micron from a single New Zealand mill, ZQ-certified. We buy the whole lot so a commission can be matched across years.'],
+                    ['Silk', 'Mulberry and bomby spun for crochet, not weaving. A tighter twist is the difference between a wrap that drapes and one that slides off the shoulder.'],
+                    ['Dyeing', 'Madder root, indigo and walnut in vats of twenty skeins. Expect variation between batches — it is the reason we use them.'],
+                  ].map(([k, v]) => (
+                    <div
+                      key={k}
+                      className="border-t border-hairline pt-6 flex flex-col justify-between"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Chain className="opacity-60" />
+                        <p className="meta">{k}</p>
+                      </div>
+                      <p className="mt-4 text-sm leading-relaxed text-ink-soft">{v}</p>
                     </div>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
       </Section>
@@ -131,16 +147,25 @@ export default function MaterialsPage() {
 
           <Divider className="mt-14" />
 
-          <div className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 border-t border-hairline">
             {care.map((c, i) => (
-              <Reveal key={c.t} delay={(i % 4) * 0.06}>
-                <div className="flex items-center gap-3">
-                  <CableRib tone="accent" className="h-3 w-6" />
-                  <h3 className="font-display text-2xl">{c.t}</h3>
+              <Reveal key={c.t} delay={i * 0.05}>
+                <div className="grid grid-cols-1 border-b border-hairline py-8 md:grid-cols-12 md:gap-8 items-start">
+                  <div className="md:col-span-2 flex items-baseline gap-3">
+                    <span className="font-display text-[1.75rem] tnum text-ink-mute">
+                      0{i + 1}
+                    </span>
+                    <CableRib tone="accent" className="h-3 w-6" />
+                  </div>
+                  <div className="md:col-span-3 mt-2 md:mt-0">
+                    <h3 className="font-display text-2xl">{c.t}</h3>
+                  </div>
+                  <div className="md:col-span-7 mt-3 md:mt-0">
+                    <p className="text-sm md:text-base leading-relaxed text-ink-soft">
+                      {c.b}
+                    </p>
+                  </div>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-ink-soft">
-                  {c.b}
-                </p>
               </Reveal>
             ))}
           </div>

@@ -18,14 +18,20 @@ import { Price } from '@/components/currency';
 import { ShellStitch, CableRib } from '@/components/stitch';
 
 export default function Home() {
+  const heroTier = tiers[0]!;
+  const subTiers = tiers.slice(1);
+  const featuredTestimonial = testimonials[1]!;
+  const firstTestimonial = testimonials[0]!;
+  const lastTestimonial = testimonials[2]!;
+
   return (
     <>
       {/* ── HERO ────────────────────────────────────────────────
           Full-bleed editorial, off-centre subject, generous air.
           One claim, one CTA. The image does the identifying. */}
       <section className="relative">
-        <div className="wrap grid gap-12 pt-16 pb-20 md:pt-24 md:pb-28 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-7 lg:pt-10">
+        <div className="wrap grid grid-cols-1 gap-12 pt-16 pb-20 md:grid-cols-12 md:gap-8 md:pt-24 md:pb-28">
+          <div className="md:col-span-7 lg:pt-10">
             <Fade delay={0.1}>
               <Eyebrow>
                 {site.location} · Est. 2019
@@ -57,13 +63,13 @@ export default function Home() {
           {/* Hero image. Deliberately NOT centred, and not full
               width — an off-centre crop is what separates an
               editorial page from a template. */}
-          <div className="lg:col-span-5 lg:pt-20">
+          <div className="md:col-span-5 lg:pt-20">
             <Reveal delay={0.3} y={28}>
               <Figure
                 src="/work/moss-granny.jpg"
                 alt="Undyed cashmere blanket in six graded tones, raking daylight"
                 ratio="3 / 4"
-                tone="#8a8578"
+                tone="#24382c"
                 label="Moss · Undyed cashmere"
                 priority
                 index="340 hours"
@@ -91,12 +97,12 @@ export default function Home() {
       </section>
 
       {/* ── THE LADDER ───────────────────────────────────────────
-          Price anchoring. The atelier price is on the page, which
-          is what makes Heritage read as sensible. */}
+          Hero+2 asymmetric grid. The Atelier commands full width
+          as the bespoke hero, with Heritage and Gift below. */}
       <Section className="relative overflow-hidden">
         <StripeField className="opacity-40" />
         <div className="wrap relative">
-          <div className="grid gap-10 md:grid-cols-12">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
             <div className="md:col-span-4">
               <Reveal>
                 <Eyebrow>Three ways to commission</Eyebrow>
@@ -112,9 +118,43 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-8">
-              <div className="grid gap-px bg-hairline sm:grid-cols-3">
-                {tiers.map((tier, i) => (
-                  <Reveal key={tier.id} delay={i * 0.08} as="article">
+              <div className="grid grid-cols-1 gap-px bg-hairline md:grid-cols-2">
+                {/* Hero tier: The Atelier */}
+                <Reveal delay={0} as="article" className="md:col-span-2">
+                  <div className="group relative flex h-full flex-col bg-ground p-7 transition-colors duration-500 hover:bg-ground-deep md:p-9">
+                    <ColumnRule className="opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <div className="flex items-baseline justify-between gap-4">
+                      <IndexNum n={heroTier.index} />
+                      <span className="meta">{leadTimeLabel(heroTier.days)}</span>
+                    </div>
+                    <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8 md:items-baseline">
+                      <div className="md:col-span-6">
+                        <h3 className="font-display text-3xl md:text-4xl">
+                          {heroTier.name}
+                        </h3>
+                        <p className="meta mt-4 tnum">
+                          <Price inr={heroTier.priceMin} /> —{' '}
+                          <Price inr={heroTier.priceMax} />
+                        </p>
+                      </div>
+                      <div className="flex h-full flex-col justify-between md:col-span-6">
+                        <p className="text-sm leading-relaxed text-ink-soft md:text-base">
+                          {heroTier.summary}
+                        </p>
+                        <Link
+                          href={`/commission/#${heroTier.id}`}
+                          className="meta link mt-6 w-fit text-ink md:mt-8"
+                        >
+                          {heroTier.id === 'gift' ? 'Ready to ship' : 'Enquire'}
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+
+                {/* Sub-tiers: Heritage and Ready Gift */}
+                {subTiers.map((tier, i) => (
+                  <Reveal key={tier.id} delay={(i + 1) * 0.08} as="article" className="md:col-span-1">
                     <div className="group relative flex h-full flex-col bg-ground p-7 transition-colors duration-500 hover:bg-ground-deep">
                       <ColumnRule className="opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                       <IndexNum n={tier.index} />
@@ -163,7 +203,7 @@ export default function Home() {
 
           {/* Asymmetric editorial grid — alternating offsets, no
               uniform 3-up card row. */}
-          <div className="mt-16 grid gap-x-8 gap-y-20 md:grid-cols-12">
+          <div className="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-12 md:gap-x-8 md:gap-y-20">
             {featured.map((p, i) => {
               const cols = [
                 'md:col-span-7',
@@ -206,12 +246,22 @@ export default function Home() {
       </Section>
 
       {/* ── PROCESS ─────────────────────────────────────────────
-          Full-bleed. Real studio photography is what proves a
-          person is on the other end of this. */}
+          Reversed split top (image left) followed by a sequential
+          numbered editorial list with sparse hairline dividers. */}
       <Section className="border-y border-hairline bg-ground-deep">
         <div className="wrap">
-          <Reveal className="grid gap-8 md:grid-cols-12">
-            <div className="md:col-span-5">
+          <Reveal className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-center">
+            <div className="order-2 md:order-1 md:col-span-7 md:pr-10">
+              <Figure
+                src="/process/making.jpg"
+                alt="Hands working a crochet hook through a cashmere loop"
+                ratio="16 / 10"
+                tone="#c3c9b6"
+                label="On the hook"
+                caption="Studio, week nine"
+              />
+            </div>
+            <div className="order-1 md:order-2 md:col-span-5">
               <Eyebrow>The making</Eyebrow>
               <h2 className="mt-6 text-[length:var(--text-title)]">
                 Fourteen weeks, and you will not have to ask.
@@ -222,38 +272,37 @@ export default function Home() {
                 is the part that makes a commission a commission.
               </p>
             </div>
-            <div className="md:col-span-7 md:pl-10">
-              <Figure
-                src="/process/making.jpg"
-                alt="Hands working a crochet hook through a cashmere loop"
-                ratio="16 / 10"
-                tone="#b8ad9b"
-                label="On the hook"
-                caption="Studio, week nine"
-              />
-            </div>
           </Reveal>
 
           <Divider className="my-16" />
 
-          <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Numbered editorial list with sparse hairline dividers */}
+          <ol className="divide-y divide-hairline border-y border-hairline">
             {process.map((step, i) => (
               <Reveal key={step.n} as="li" delay={(i % 3) * 0.06}>
-                <IndexNum n={step.n} rule={false} />
-                <div className="mt-4 flex items-baseline justify-between gap-4">
-                  <h3 className="font-display text-xl">{step.title}</h3>
-                  <span className="meta shrink-0">{step.duration}</span>
+                <div className="grid grid-cols-1 gap-4 py-8 md:grid-cols-12 md:items-baseline md:gap-8">
+                  <div className="md:col-span-2">
+                    <IndexNum n={step.n} />
+                  </div>
+                  <div className="flex items-baseline justify-between gap-4 md:col-span-4">
+                    <h3 className="font-display text-2xl md:text-3xl">{step.title}</h3>
+                    <span className="meta shrink-0">{step.duration}</span>
+                  </div>
+                  <div className="md:col-span-6">
+                    <p className="text-sm leading-relaxed text-ink-soft md:text-base">
+                      {step.body}
+                    </p>
+                  </div>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                  {step.body}
-                </p>
               </Reveal>
             ))}
           </ol>
         </div>
       </Section>
 
-      {/* ── FIBRE ─────────────────────────────────────────────── */}
+      {/* ── FIBRE ───────────────────────────────────────────────
+          The ONE section retaining the equal-3-col gap-px bg-hairline
+          grid family, strictly collapsing below 768px. */}
       <Section>
         <div className="wrap">
           <Reveal>
@@ -267,7 +316,7 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <div className="mt-16 grid gap-px bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-px bg-hairline md:grid-cols-3">
             {materials.map((m, i) => (
               <Reveal key={m.fibre} delay={(i % 3) * 0.06}>
                 <div className="flex h-full flex-col bg-ground p-7">
@@ -298,26 +347,48 @@ export default function Home() {
       </Section>
 
       {/* ── PROOF ───────────────────────────────────────────────
-          Gift buyers are not short of inspiration, they are afraid
-          of buying the wrong thing. These are recipient-side. */}
+          Full-width statement section. Monumental lead testimonial
+          paired with asymmetric supporting reflections. */}
       <Section className="border-y border-hairline">
         <div className="wrap">
           <Reveal>
             <Eyebrow>What arrives</Eyebrow>
           </Reveal>
 
-          <div className="mt-14 grid gap-x-10 gap-y-14 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <Reveal key={t.author} delay={i * 0.08} as="figure">
+          <div className="mt-12">
+            <Reveal delay={0.08} as="figure" className="max-w-5xl">
+              <ShellStitch tone="accent" className="h-5 w-12" opacity={0.75} />
+              <blockquote className="mt-8 font-display text-[2rem] leading-[1.1] tracking-[-0.02em] md:text-[2.75rem] lg:text-[length:var(--text-title)]">
+                {featuredTestimonial.quote}
+              </blockquote>
+              <figcaption className="meta mt-8 border-t border-hairline pt-4">
+                {featuredTestimonial.author} — {featuredTestimonial.context}
+              </figcaption>
+            </Reveal>
+
+            <Divider className="my-14 md:my-16" />
+
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
+              <Reveal delay={0.16} as="figure" className="md:col-span-7">
                 <ShellStitch tone="accent" className="h-4 w-10" opacity={0.7} />
                 <blockquote className="mt-6 font-display text-[1.65rem] leading-[1.15] tracking-[-0.015em]">
-                  {t.quote}
+                  {firstTestimonial.quote}
                 </blockquote>
                 <figcaption className="meta mt-7 border-t border-hairline pt-4">
-                  {t.author} — {t.context}
+                  {firstTestimonial.author} — {firstTestimonial.context}
                 </figcaption>
               </Reveal>
-            ))}
+
+              <Reveal delay={0.24} as="figure" className="md:col-span-5 md:pl-6">
+                <ShellStitch tone="accent" className="h-4 w-10" opacity={0.7} />
+                <blockquote className="mt-6 font-display text-[1.65rem] leading-[1.15] tracking-[-0.015em]">
+                  {lastTestimonial.quote}
+                </blockquote>
+                <figcaption className="meta mt-7 border-t border-hairline pt-4">
+                  {lastTestimonial.author} — {lastTestimonial.context}
+                </figcaption>
+              </Reveal>
+            </div>
           </div>
         </div>
       </Section>
@@ -355,11 +426,23 @@ export default function Home() {
       </Section>
 
       {/* ── CLOSING CTA ─────────────────────────────────────────
-          One action. Restated risk inversion: we will say no
-          if it is not right, which is itself a luxury signal. */}
+          Reversed editorial split (image left, text right) to break
+          zigzag repetition and anchor the close. */}
       <Section className="border-t border-hairline">
-        <div className="wrap grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+        <div className="wrap grid grid-cols-1 gap-12 md:grid-cols-12 md:items-center">
+          <div className="order-2 md:order-1 md:col-span-5 lg:pt-6">
+            <Reveal delay={0.15}>
+              <Figure
+                src="/work/long-shawl.jpg"
+                alt="Long cashmere shawl in madder-dyed yarn"
+                ratio="4 / 5"
+                tone="#3d4a3a"
+                label="The Long Shawl"
+                index="140 hrs"
+              />
+            </Reveal>
+          </div>
+          <div className="order-1 md:order-2 md:col-span-7 md:pl-8">
             <Reveal>
               <h2 className="text-[length:var(--text-display)]">
                 Tell us who it is for.
@@ -375,18 +458,6 @@ export default function Home() {
                   {site.email}
                 </ButtonLink>
               </div>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-5 lg:pt-6">
-            <Reveal delay={0.15}>
-              <Figure
-                src="/work/long-shawl.jpg"
-                alt="Long cashmere shawl in madder-dyed yarn"
-                ratio="4 / 5"
-                tone="#a05a4a"
-                label="The Long Shawl"
-                index="140 hrs"
-              />
             </Reveal>
           </div>
         </div>

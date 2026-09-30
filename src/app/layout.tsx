@@ -15,28 +15,32 @@ import './globals.css';
  * face and swaps when the real one lands — no invisible text, no
  * layout shift.
  */
-const instrumentSerif = localFont({
+const cormorant = localFont({
   src: [
-    { path: '../../public/fonts/instrument-serif-regular.woff2', weight: '400', style: 'normal' },
-    { path: '../../public/fonts/instrument-serif-italic.woff2', weight: '400', style: 'italic' },
+    { path: '../../public/fonts/cormorant-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../public/fonts/cormorant-600.woff2', weight: '600', style: 'normal' },
+    { path: '../../public/fonts/cormorant-500-italic.woff2', weight: '500', style: 'italic' },
   ],
-  variable: '--font-instrument-serif',
+  variable: '--font-cormorant',
   display: 'swap',
   preload: true,
   fallback: ['Times New Roman', 'serif'],
 });
 
-const inter = localFont({
-  src: '../../public/fonts/inter-var.woff2',
-  variable: '--font-inter',
+const satoshi = localFont({
+  src: [
+    { path: '../../public/fonts/satoshi-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../public/fonts/satoshi-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../public/fonts/satoshi-700.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-satoshi',
   display: 'swap',
   preload: true,
-  weight: '100 900',
-  fallback: ['system-ui', 'sans-serif'],
+  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://crochit.com'),
+  metadataBase: new URL('https://mor.in'),
   title: {
     default: `${site.name} — Hand-crochet heirlooms in natural fibre`,
     template: `%s — ${site.name}`,
@@ -55,7 +59,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#f4f1ea',
+  themeColor: '#eef0ea',
   colorScheme: 'light',
 };
 
@@ -65,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${instrumentSerif.variable} ${inter.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${satoshi.variable}`}>
       <body className="antialiased">
         <GrainField />
         <CurrencyProvider>

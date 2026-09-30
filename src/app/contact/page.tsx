@@ -15,8 +15,8 @@ export default function ContactPage() {
   return (
     <>
       <section className="wrap pt-16 pb-12 md:pt-24">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-6">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8">
+          <div className="md:col-span-7 lg:col-span-6">
             <Eyebrow>Enquire</Eyebrow>
             <h1 className="mt-8 text-[length:var(--text-display)]">
               Tell us who
@@ -84,7 +84,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 lg:col-start-8">
+          <div className="md:col-span-5 md:col-start-8 lg:col-span-5 lg:col-start-8">
             <Reveal delay={0.15}>
               <div className="border border-hairline p-8 md:p-10">
                 <Eyebrow>The form</Eyebrow>
@@ -101,70 +101,88 @@ export default function ContactPage() {
       </section>
 
       <Section className="border-y border-hairline bg-ground-deep">
-        <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-6">
-            <Reveal>
-              <Figure
-                src="/process/dispatch.jpg"
-                alt="A finished blanket folded with a hand-written care card"
-                ratio="4 / 3"
-                tone="#c3b8a6"
-                label="How it arrives"
-                caption="Folded, never rolled"
-              />
-            </Reveal>
+        <div className="wrap">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 md:items-end">
+            <div className="md:col-span-7">
+              <Reveal>
+                <Eyebrow>Before you send this</Eyebrow>
+                <h2 className="mt-6 text-[length:var(--text-title)]">
+                  Three things that speed it up.
+                </h2>
+              </Reveal>
+            </div>
+            <div className="md:col-span-5">
+              <Reveal delay={0.1}>
+                <Figure
+                  src="/process/dispatch.jpg"
+                  alt="A finished blanket folded with a hand-written care card"
+                  ratio="16 / 10"
+                  tone="#d9dcd2"
+                  label="How it arrives"
+                  caption="Folded, never rolled"
+                />
+              </Reveal>
+            </div>
           </div>
-          <div className="lg:col-span-5 lg:col-start-8 lg:self-center">
-            <Reveal delay={0.1}>
-              <Eyebrow>Before you send this</Eyebrow>
-              <h2 className="mt-6 text-[length:var(--text-title)]">
-                Three things that speed it up.
-              </h2>
-              <ul className="mt-10">
-                {[
-                  ['The date', 'The single most important field. It determines the tier, the fibre, and whether we are free.'],
-                  ['Who it is for', 'Not their name — who they are. A mother, a new home, someone who already owns too much.'],
-                  ['Where it will live', 'A sofa gets a denser stitch than a bed. Wool, sunlight and washing frequency all change the brief.'],
-                ].map(([k, v]) => (
-                  <li key={k} className="border-b border-hairline py-5 first:border-t">
+
+          <div className="mt-14 border-t border-hairline">
+            {[
+              ['The date', 'The single most important field. It determines the tier, the fibre, and whether we are free.'],
+              ['Who it is for', 'Not their name — who they are. A mother, a new home, someone who already owns too much.'],
+              ['Where it will live', 'A sofa gets a denser stitch than a bed. Wool, sunlight and washing frequency all change the brief.'],
+            ].map(([k, v], i) => (
+              <Reveal key={k} delay={i * 0.06}>
+                <div className="grid grid-cols-1 border-b border-hairline py-7 md:grid-cols-12 md:gap-8 md:items-baseline">
+                  <div className="md:col-span-3 flex items-baseline gap-4">
+                    <span className="font-display text-[1.5rem] tnum text-ink-mute">
+                      0{i + 1}
+                    </span>
                     <p className="meta">{k}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                  </div>
+                  <div className="md:col-span-9 mt-2 md:mt-0">
+                    <p className="text-sm md:text-base leading-relaxed text-ink-soft">
                       {v}
                     </p>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </Section>
 
       <Section>
-        <div className="wrap-narrow">
-          <Reveal>
-            <Eyebrow>Still deciding</Eyebrow>
-            <h2 className="mt-6 text-[length:var(--text-title)]">
-              The questions people ask first.
-            </h2>
-          </Reveal>
-          <div className="mt-14">
-            {faq.map((f, i) => (
-              <Reveal key={f.q} delay={(i % 3) * 0.05}>
-                <details className="group border-t border-hairline py-7 last:border-b">
-                  <summary className="flex cursor-pointer list-none items-baseline justify-between gap-8">
-                    <span className="font-display text-[1.6rem] leading-tight">
-                      {f.q}
-                    </span>
-                    <span className="meta shrink-0 text-ink-mute transition-colors group-open:text-accent">
-                      Open
-                    </span>
-                  </summary>
-                  <p className="mt-5 max-w-2xl leading-relaxed text-ink-soft">
-                    {f.a}
-                  </p>
-                </details>
+        <div className="wrap">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
+            <div className="md:col-span-4">
+              <Reveal>
+                <Eyebrow>Still deciding</Eyebrow>
+                <h2 className="mt-6 text-[length:var(--text-title)]">
+                  The questions people ask first.
+                </h2>
               </Reveal>
-            ))}
+            </div>
+            <div className="md:col-span-8">
+              <div>
+                {faq.map((f, i) => (
+                  <Reveal key={f.q} delay={(i % 3) * 0.05}>
+                    <details className="group border-t border-hairline py-7 last:border-b">
+                      <summary className="flex cursor-pointer list-none items-baseline justify-between gap-8">
+                        <span className="font-display text-[1.6rem] leading-tight">
+                          {f.q}
+                        </span>
+                        <span className="meta shrink-0 text-ink-mute transition-colors group-open:text-accent">
+                          Open
+                        </span>
+                      </summary>
+                      <p className="mt-5 max-w-2xl leading-relaxed text-ink-soft">
+                        {f.a}
+                      </p>
+                    </details>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </Section>

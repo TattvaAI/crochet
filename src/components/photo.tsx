@@ -15,7 +15,7 @@ import { CableRib } from './stitch';
 export function Photo({
   src,
   alt,
-  tone = '#c9c0b0',
+  tone = '#d9dcd2',
   label,
   index,
   priority = false,

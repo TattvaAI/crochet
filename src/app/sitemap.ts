@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
 
-const BASE = 'https://crochit.com';
+const BASE = 'https://mor.in';
 
 /**
  * Sitemap — the list of pages search engines and link-preview

@@ -8,21 +8,21 @@
 
 /* ------------------------------------------------------------------
    TOKENS
-   One neutral ground, one warm ink, one confident accent used at
-   roughly 2% of any page. Sampled from undyed wool + madder root.
+   Bone ground, forest-black ink, golden amber accent used at roughly
+   2% of any page.
    ------------------------------------------------------------------ */
 @theme {
-  --color-ground: #f4f1ea;
-  --color-ground-deep: #ebe6dc;
-  --color-ink: #1a1714;
-  --color-ink-soft: #4a443c;
-  --color-ink-mute: #8a8177;
-  --color-hairline: #d8d1c4;
-  --color-accent: #7d2b23;
-  --color-accent-soft: #a85a4d;
+  --color-ground: #eef0ea;
+  --color-ground-deep: #e2e6df;
+  --color-ink: #16241b;
+  --color-ink-soft: #45524b;
+  --color-ink-mute: #74837a;
+  --color-hairline: #c8ccc0;
+  --color-accent: #a67c00;
+  --color-accent-soft: #c4981d;
 
-  --font-display: var(--font-instrument-serif), 'Times New Roman', serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), 'Times New Roman', serif;
+  --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
 
   --text-hero: clamp(3.5rem, 13vw, 11rem);
   --text-display: clamp(2.5rem, 6.5vw, 5.5rem);
@@ -170,7 +170,7 @@
   select.field {
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238a8177' stroke-width='1.2'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2374837a' stroke-width='1.2'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 2px center;
     padding-right: 1.5rem;
@@ -193,8 +193,8 @@
     inset: 0;
     background-image: repeating-linear-gradient(
       -45deg,
-      rgba(26, 23, 20, 0.045) 0px,
-      rgba(26, 23, 20, 0.045) 1px,
+      rgba(22, 36, 27, 0.045) 0px,
+      rgba(22, 36, 27, 0.045) 1px,
       transparent 1px,
       transparent 7px
     );

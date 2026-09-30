@@ -35,8 +35,8 @@ export default function CommissionPage() {
   return (
     <>
       <section className="wrap pt-16 pb-12 md:pt-24">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+          <div className="md:col-span-7">
             <Eyebrow>Commission</Eyebrow>
             <h1 className="mt-8 text-[length:var(--text-display)]">
               Prices are
@@ -44,7 +44,7 @@ export default function CommissionPage() {
               on the page.
             </h1>
           </div>
-          <div className="lg:col-span-5 lg:pt-16">
+          <div className="md:col-span-5 md:pt-16">
             <Reveal delay={0.2}>
               <p className="max-w-sm text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
                 Hiding prices filters out the people who were never going to
@@ -79,103 +79,177 @@ export default function CommissionPage() {
       </Section>
 
       {/* ── THE THREE TIERS ─────────────────────────────────── */}
-      {tiers.map((tier, i) => (
-        <Section
-          key={tier.id}
-          id={tier.id}
-          className={
-            i % 2 === 0
-              ? 'relative overflow-hidden border-y border-hairline'
-              : 'relative overflow-hidden border-y border-hairline bg-ground-deep'
-          }
-        >
-          <div className="wrap relative">
-            <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-              <div className="lg:col-span-5">
-                <Reveal>
-                  <div className="flex items-baseline gap-4">
-                    <span className="font-display text-[1.5rem] tnum text-ink-mute">
-                      {tier.index}
-                    </span>
-                    <Eyebrow>{leadTimeLabel(tier.days)} working time</Eyebrow>
-                  </div>
-                  <h2 className="mt-6 text-[length:var(--text-title)]">
-                    {tier.name}
-                  </h2>
-                  <p className="mt-6 max-w-sm text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
-                    {tier.summary}
-                  </p>
-                  <p className="mt-8 font-display text-[2.5rem] tnum">
-                    <Price inr={tier.priceMin} /> —{' '}
-                    <Price inr={tier.priceMax} />
-                  </p>
-                </Reveal>
+      {/* Tier 01: Atelier Asymmetric Flagship */}
+      {(() => {
+        const atelierTier = tiers[0]!;
+        const ladderTiers = tiers.slice(1);
+        return (
+          <>
+            <Section
+              key={atelierTier.id}
+              id={atelierTier.id}
+              className="relative overflow-hidden border-y border-hairline"
+            >
+              <div className="wrap relative">
+                <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
+                  <div className="md:col-span-6">
+                    <Reveal>
+                      <div className="flex items-baseline gap-4">
+                        <span className="font-display text-[1.5rem] tnum text-ink-mute">
+                          {atelierTier.index}
+                        </span>
+                        <Eyebrow>{leadTimeLabel(atelierTier.days)} working time</Eyebrow>
+                      </div>
+                      <h2 className="mt-6 text-[length:var(--text-title)]">
+                        {atelierTier.name}
+                      </h2>
+                      <p className="mt-6 max-w-md text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
+                        {atelierTier.summary}
+                      </p>
+                      <p className="mt-8 font-display text-[2.5rem] tnum">
+                        <Price inr={atelierTier.priceMin} /> —{' '}
+                        <Price inr={atelierTier.priceMax} />
+                      </p>
+                    </Reveal>
 
-                <Reveal delay={0.15}>
-                  <div className="mt-10">
-                    <Figure
-                      src={
-                        tier.id === 'atelier'
-                          ? '/work/moss-granny.jpg'
-                          : tier.id === 'heritage'
-                            ? '/work/ash-herringbone.jpg'
-                            : '/work/heirloom-wrap.jpg'
-                      }
-                      alt={tier.name}
-                      ratio="4 / 5"
-                      tone={
-                        tier.id === 'atelier'
-                          ? '#8a8578'
-                          : tier.id === 'heritage'
-                            ? '#a8a49c'
-                            : '#d8cbb6'
-                      }
-                      label={tier.name}
-                    />
+                    <Reveal delay={0.15}>
+                      <div className="mt-10">
+                        <Figure
+                          src="/work/moss-granny.jpg"
+                          alt={atelierTier.name}
+                          ratio="16 / 10"
+                          tone="#24382c"
+                          label={atelierTier.name}
+                        />
+                      </div>
+                    </Reveal>
                   </div>
-                </Reveal>
+
+                  <div className="md:col-span-6 md:border-l md:border-hairline md:pl-10">
+                    <Reveal delay={0.1}>
+                      <div className="border-t border-hairline pt-7 md:border-t-0 md:pt-0">
+                        <Eyebrow>Personalisation</Eyebrow>
+                        <p className="mt-4 text-ink-soft">{atelierTier.personalisation}</p>
+                      </div>
+
+                      <div className="mt-10">
+                        <Eyebrow>Included</Eyebrow>
+                        <ul className="mt-5">
+                          {atelierTier.includes.map((item) => (
+                            <li
+                              key={item}
+                              className="flex gap-4 border-b border-hairline py-4 text-sm leading-relaxed text-ink-soft"
+                            >
+                              <Chain className="mt-1.5 opacity-60" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="mt-10">
+                        <Eyebrow>Available as</Eyebrow>
+                        <p className="mt-4 text-ink-soft">
+                          {atelierTier.applies.join(' · ')}
+                        </p>
+                      </div>
+
+                      <div className="mt-12">
+                        <ButtonLink href="/contact/">
+                          Enquire — {atelierTier.name}
+                        </ButtonLink>
+                      </div>
+                    </Reveal>
+                  </div>
+                </div>
               </div>
+            </Section>
 
-              <div className="lg:col-span-6 lg:col-start-7">
-                <Reveal delay={0.1}>
-                  <div className="border-t border-hairline pt-7">
-                    <Eyebrow>Personalisation</Eyebrow>
-                    <p className="mt-4 text-ink-soft">{tier.personalisation}</p>
-                  </div>
+            {/* Tiers 02 & 03: 2-column comparative ladder */}
+            <Section className="relative overflow-hidden border-b border-hairline bg-ground-deep">
+              <div className="wrap relative">
+                <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-12">
+                  {ladderTiers.map((tier, i) => (
+                    <article key={tier.id} id={tier.id} className="scroll-mt-20 flex flex-col justify-between">
+                      <div>
+                        <Reveal delay={i * 0.1}>
+                          <div className="flex items-baseline gap-4">
+                            <span className="font-display text-[1.5rem] tnum text-ink-mute">
+                              {tier.index}
+                            </span>
+                            <Eyebrow>{leadTimeLabel(tier.days)} working time</Eyebrow>
+                          </div>
+                          <h2 className="mt-6 text-[length:var(--text-title)]">
+                            {tier.name}
+                          </h2>
+                          <p className="mt-6 text-[length:var(--text-lede)] leading-relaxed text-ink-soft">
+                            {tier.summary}
+                          </p>
+                          <p className="mt-8 font-display text-[2.5rem] tnum">
+                            <Price inr={tier.priceMin} /> —{' '}
+                            <Price inr={tier.priceMax} />
+                          </p>
+                        </Reveal>
 
-                  <div className="mt-10">
-                    <Eyebrow>Included</Eyebrow>
-                    <ul className="mt-5">
-                      {tier.includes.map((item) => (
-                        <li
-                          key={item}
-                          className="flex gap-4 border-b border-hairline py-4 text-sm leading-relaxed text-ink-soft"
-                        >
-                          <Chain className="mt-1.5 opacity-60" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                        <Reveal delay={0.12 + i * 0.08}>
+                          <div className="mt-8">
+                            <Figure
+                              src={
+                                tier.id === 'heritage'
+                                  ? '/work/ash-herringbone.jpg'
+                                  : '/work/heirloom-wrap.jpg'
+                              }
+                              alt={tier.name}
+                              ratio="4 / 3"
+                              tone={tier.id === 'heritage' ? '#c3c9b6' : '#d9dcd2'}
+                              label={tier.name}
+                            />
+                          </div>
+                        </Reveal>
 
-                  <div className="mt-10">
-                    <Eyebrow>Available as</Eyebrow>
-                    <p className="mt-4 text-ink-soft">
-                      {tier.applies.join(' · ')}
-                    </p>
-                  </div>
+                        <Reveal delay={0.15 + i * 0.08}>
+                          <div className="mt-8 border-t border-hairline pt-6">
+                            <Eyebrow>Personalisation</Eyebrow>
+                            <p className="mt-3 text-sm text-ink-soft">{tier.personalisation}</p>
+                          </div>
 
-                  <div className="mt-12">
-                    <ButtonLink href="/contact/">
-                      Enquire — {tier.name}
-                    </ButtonLink>
-                  </div>
-                </Reveal>
+                          <div className="mt-8">
+                            <Eyebrow>Included</Eyebrow>
+                            <ul className="mt-4">
+                              {tier.includes.map((item) => (
+                                <li
+                                  key={item}
+                                  className="flex gap-3 border-b border-hairline py-3 text-sm leading-relaxed text-ink-soft"
+                                >
+                                  <Chain className="mt-1.5 opacity-60" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div className="mt-8">
+                            <Eyebrow>Available as</Eyebrow>
+                            <p className="mt-3 text-sm text-ink-soft">
+                              {tier.applies.join(' · ')}
+                            </p>
+                          </div>
+                        </Reveal>
+                      </div>
+
+                      <div className="mt-10">
+                        <ButtonLink href="/contact/">
+                          Enquire — {tier.name}
+                        </ButtonLink>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
-        </Section>
-      ))}
+            </Section>
+          </>
+        );
+      })()}
 
       {/* ── SWATCH LIBRARY ────────────────────────────────────
           The differentiator. One afternoon of macro photography
@@ -194,13 +268,13 @@ export default function CommissionPage() {
             </p>
           </Reveal>
 
-          <div className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-6 md:flex md:gap-6 md:overflow-x-auto md:snap-x md:snap-mandatory md:pb-6">
             {swatches.map((s, i) => {
               const M = Motif[s.motif];
               return (
-                <Reveal key={s.name} delay={(i % 3) * 0.06}>
-                  <div className="border-t border-hairline pt-6">
-                    <div className="flex h-24 items-center justify-center">
+                <Reveal key={s.name} delay={(i % 3) * 0.06} className="md:w-[320px] md:shrink-0 md:snap-start">
+                  <div className="h-full border border-hairline bg-ground p-7 flex flex-col justify-between">
+                    <div className="flex h-24 items-center justify-center border-b border-hairline pb-4">
                       <M
                         tone="ink"
                         className={
@@ -213,8 +287,10 @@ export default function CommissionPage() {
                         opacity={0.55}
                       />
                     </div>
-                    <h3 className="mt-6 font-display text-2xl">{s.name}</h3>
-                    <p className="meta mt-3">{s.use}</p>
+                    <div className="pt-6">
+                      <h3 className="font-display text-2xl">{s.name}</h3>
+                      <p className="meta mt-3">{s.use}</p>
+                    </div>
                   </div>
                 </Reveal>
               );
@@ -229,7 +305,7 @@ export default function CommissionPage() {
       <Section className="border-y border-hairline bg-ground-deep">
         <div className="wrap">
           <Divider />
-          <div className="mt-16 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 border-t border-hairline">
             {[
               {
                 t: 'Payment',
@@ -248,11 +324,22 @@ export default function CommissionPage() {
                 b: 'We mend anything that fails, for the life of the piece. Send it back; we will not charge you for our own work wearing out.',
               },
             ].map((p, i) => (
-              <Reveal key={p.t} delay={(i % 4) * 0.06}>
-                <h3 className="font-display text-2xl">{p.t}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink-soft">
-                  {p.b}
-                </p>
+              <Reveal key={p.t} delay={i * 0.05}>
+                <div className="grid grid-cols-1 border-b border-hairline py-8 md:grid-cols-12 md:gap-8 items-start">
+                  <div className="md:col-span-2 flex items-baseline gap-3">
+                    <span className="font-display text-[1.75rem] tnum text-ink-mute">
+                      0{i + 1}
+                    </span>
+                  </div>
+                  <div className="md:col-span-3 mt-2 md:mt-0">
+                    <h3 className="font-display text-2xl">{p.t}</h3>
+                  </div>
+                  <div className="md:col-span-7 mt-3 md:mt-0">
+                    <p className="text-sm md:text-base leading-relaxed text-ink-soft">
+                      {p.b}
+                    </p>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>

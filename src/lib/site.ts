@@ -10,17 +10,18 @@ export const site = {
   // ─── BRAND ──────────────────────────────────────────────────────
   // Change this one value when you settle on a name. Everything that
   // displays the brand reads from here — nothing is hardcoded.
-  name: 'Croch-it',
-  wordmark: 'CROCH—IT',
+  name: 'Mor',
+  wordmark: 'MOR',
   // Optional: a longer formal name used in the About page and footer.
-  legalName: 'Croch-it Atelier',
+  legalName: 'Mor Atelier',
 
   // ─── CONTACT ────────────────────────────────────────────────────
-  email: 'studio@crochit.com',
-  instagram: 'https://instagram.com/crochit',
-  instagramHandle: '@crochit',
+  // Email domain must match the purchased domain (mor.in intended).
+  email: 'hello@mor.in',
+  instagram: 'https://www.instagram.com/beautyloop.made/',
+  instagramHandle: '@beautyloop.made',
   location: 'India · Shipping worldwide',
-  whatsapp: '+91 XXXXX XXXXX',
+  whatsapp: '+91 70152 29077',
 } as const;
 
 /**

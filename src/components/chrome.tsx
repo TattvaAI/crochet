@@ -64,25 +64,25 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-hairline">
+    <footer className="relative bg-ink text-ground">
       <div className="wrap grid gap-12 py-16 md:grid-cols-4 md:py-20">
         <div className="md:col-span-2">
           <p className="font-display text-[2.5rem] leading-[0.95]">
             {site.name}
           </p>
-          <p className="meta mt-4 max-w-xs leading-relaxed">
+          <p className="meta mt-4 max-w-xs leading-relaxed text-ground/70">
             Hand-crochet heirlooms in natural fibre. Made to order, in India,
             shipped worldwide.
           </p>
         </div>
 
         <nav aria-label="Footer" className="flex flex-col gap-3">
-          <p className="meta">Studio</p>
+          <p className="meta text-ground/50">Studio</p>
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="meta link w-fit text-ink-soft transition-colors hover:text-ink"
+              className="meta link w-fit text-ground/70 transition-colors hover:text-ground"
             >
               {item.label}
             </Link>
@@ -90,33 +90,41 @@ export function Footer() {
         </nav>
 
         <div className="flex flex-col gap-3">
-          <p className="meta">Contact</p>
+          <p className="meta text-ground/50">Contact</p>
           <a
             href={`mailto:${site.email}`}
-            className="meta link w-fit text-ink-soft transition-colors hover:text-ink"
+            className="meta link w-fit text-ground/70 transition-colors hover:text-ground"
           >
             {site.email}
+          </a>
+          <a
+            href="https://wa.me/917015229077"
+            target="_blank"
+            rel="noreferrer"
+            className="meta link w-fit text-ground/70 transition-colors hover:text-ground"
+          >
+            {site.whatsapp}
           </a>
           <a
             href={site.instagram}
             target="_blank"
             rel="noreferrer"
-            className="meta link w-fit text-ink-soft transition-colors hover:text-ink"
+            className="meta link w-fit text-ground/70 transition-colors hover:text-ground"
           >
             {site.instagramHandle}
           </a>
-          <p className="meta leading-relaxed">{site.location}</p>
+          <p className="meta leading-relaxed text-ground/70">{site.location}</p>
         </div>
       </div>
 
-      <div className="wrap flex flex-col gap-4 border-t border-hairline py-8 sm:flex-row sm:items-center sm:justify-between">
-        <p className="meta">
+      <div className="wrap flex flex-col gap-4 border-t border-ground/15 py-8 sm:flex-row sm:items-center sm:justify-between">
+        <p className="meta text-ground/70">
           © {new Date().getFullYear()} {site.legalName}
         </p>
         <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
           {['Lead times', 'Shipping', 'Care & repair', 'Gifting'].map((l) => (
             <li key={l} className="flex items-center gap-5">
-              <span className="meta text-ink-mute">{l}</span>
+              <span className="meta text-ground/50">{l}</span>
               <Chain className="opacity-40" />
             </li>
           ))}

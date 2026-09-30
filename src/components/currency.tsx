@@ -15,7 +15,7 @@ type Ctx = {
 };
 
 const CurrencyContext = createContext<Ctx | null>(null);
-const STORAGE_KEY = 'crochit:currency';
+const STORAGE_KEY = 'mor:currency';
 
 export function CurrencyProvider({ children }: { children: React.ReactNode }) {
   const [code, setCodeState] = useState<CurrencyCode>(defaultCurrency);

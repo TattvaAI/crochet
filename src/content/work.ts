@@ -37,7 +37,7 @@ export const pieces: Piece[] = [
     priceInr: 78000,
     image: '/work/moss-granny.jpg',
     note: 'Six shades of undyed fleece, graded by micron. No dye, no two skeins identical.',
-    swatch: '#8a8578',
+    swatch: '#24382c',
   },
   {
     slug: 'seafoam-square',
@@ -63,7 +63,7 @@ export const pieces: Piece[] = [
     priceInr: 7200,
     image: '/work/heirloom-wrap.jpg',
     note: 'Monogrammed at the corner. The piece most often sent without the giver named.',
-    swatch: '#d8cbb6',
+    swatch: '#d9dcd2',
   },
   {
     slug: 'ash-herringbone',
@@ -76,7 +76,7 @@ export const pieces: Piece[] = [
     priceInr: 19000,
     image: '/work/ash-herringbone.jpg',
     note: 'Herringbone worked in two greys only — the pattern does the work, not the colour.',
-    swatch: '#a8a49c',
+    swatch: '#c3c9b6',
   },
   {
     slug: 'the- long shawl',
@@ -89,7 +89,7 @@ export const pieces: Piece[] = [
     priceInr: 65000,
     image: '/work/long-shawl.jpg',
     note: 'Pattern drafted around one pair of shoulders. Eleven hundred hours became one hundred and forty.',
-    swatch: '#a05a4a',
+    swatch: '#3d4a3a',
   },
   {
     slug: 'first- blanket',
@@ -102,7 +102,7 @@ export const pieces: Piece[] = [
     priceInr: 6500,
     image: '/work/first-blanket.jpg',
     note: 'Woven edge, no stretch, made to be dragged behind a small person for ten years.',
-    swatch: '#cfc4b2',
+    swatch: '#c3c9b6',
   },
 ];
 
@@ -182,37 +182,37 @@ export const materials = [
     fibre: 'Cashmere',
     detail: 'Grade A, 15.5 micron, combed not carded. Mule’s Fiber or Gifu. Softens without pilling for roughly a decade of daily use.',
     use: 'Blankets, throws, shawls',
-    swatch: '#c9bda9',
+    swatch: '#d9dcd2',
   },
   {
     fibre: 'Merino',
     detail: '18.5 micron, mulesing-free, ZQ-certified New Zealand. Takes dye deeply and holds colour without fading to grey.',
     use: 'Everyday throws, layering',
-    swatch: '#9a938a',
+    swatch: '#8b968c',
   },
   {
     fibre: 'Silk',
     detail: 'Mulberry or bomby, spun for crochet rather than weaving. Adds a dry hand and a faint, natural sheen that catches raking light.',
     use: 'Wraps, summer shawls',
-    swatch: '#d3c6ae',
+    swatch: '#d9dcd2',
   },
   {
     fibre: 'Undyed',
     detail: 'Flock in its natural coat colour. Graded by micron across a single blanket so the tone shifts are the animal, not the dye bath.',
     use: 'Atelier tier only',
-    swatch: '#8a8578',
+    swatch: '#24382c',
   },
   {
     fibre: 'Cotton & linen',
     detail: 'Long-staple, OEKO-TEX certified, woven edge. Breathable, washable, and the correct choice for a child’s first blanket.',
     use: 'Gifts, children’s pieces',
-    swatch: '#cfc4b2',
+    swatch: '#c3c9b6',
   },
   {
     fibre: 'Dye',
     detail: 'Madder root, indigo, and walnut, hand-dyed in small vats. Expect variation between batches. This is the point.',
     use: 'Shawls, signature work',
-    swatch: '#a05a4a',
+    swatch: '#3d4a3a',
   },
 ];
 
