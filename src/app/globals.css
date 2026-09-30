@@ -1,0 +1,226 @@
+/* Fonts are self-hosted via next/font in layout.tsx and exposed as the
+   --font-display / --font-sans CSS variables. No @import url() to
+   Google Fonts anywhere: a blocking external CSS request added 5s to
+   first paint on a slow connection, which is exactly the connection
+   a rural-India visitor is on. */
+
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   TOKENS
+   One neutral ground, one warm ink, one confident accent used at
+   roughly 2% of any page. Sampled from undyed wool + madder root.
+   ------------------------------------------------------------------ */
+@theme {
+  --color-ground: #f4f1ea;
+  --color-ground-deep: #ebe6dc;
+  --color-ink: #1a1714;
+  --color-ink-soft: #4a443c;
+  --color-ink-mute: #8a8177;
+  --color-hairline: #d8d1c4;
+  --color-accent: #7d2b23;
+  --color-accent-soft: #a85a4d;
+
+  --font-display: var(--font-instrument-serif), 'Times New Roman', serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --text-hero: clamp(3.5rem, 13vw, 11rem);
+  --text-display: clamp(2.5rem, 6.5vw, 5.5rem);
+  --text-title: clamp(1.75rem, 3.5vw, 3rem);
+  --text-lede: clamp(1.125rem, 1.7vw, 1.4rem);
+
+  --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --spacing-section: clamp(5rem, 12vw, 11rem);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-hairline);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-ground);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 5rem);
+  }
+
+  .wrap-narrow {
+    width: 100%;
+    max-width: 54rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 5rem);
+  }
+
+  .section {
+    padding-block: var(--spacing-section);
+  }
+
+  /* Meta label — the small tracked-out sans that carries the
+     editorial register. Used for eyebrows, indices, units. */
+  .meta {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ink-mute);
+  }
+
+  .rule {
+    height: 1px;
+    background-color: var(--color-hairline);
+    width: 100%;
+  }
+
+  /* Understated link: hairline that fills from the left. */
+  .link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+  }
+  .link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s var(--ease-slow);
+  }
+  .link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Text input — hairline bottom rule only. No box, no radius. */
+  .field {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-hairline);
+    padding: 0.75rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--color-ink);
+    transition: border-color 0.4s var(--ease-slow);
+  }
+  .field::placeholder {
+    color: var(--color-ink-mute);
+  }
+  .field:focus {
+    outline: none;
+    border-bottom-color: var(--color-ink);
+  }
+  .field:focus-visible {
+    outline: none;
+  }
+
+  /* Native select chevron sits inside the field and overlaps long
+     option labels. Push the text clear of it instead. */
+  select.field {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238a8177' stroke-width='1.2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 2px center;
+    padding-right: 1.5rem;
+  }
+
+  /* Date inputs: keep the native calendar glyph, drop the inner
+     padding so it aligns with the other fields. */
+  input[type='date'] {
+    padding-right: 0;
+  }
+
+  .placeholder-tile {
+    position: relative;
+    background-color: var(--color-ground-deep);
+    overflow: hidden;
+  }
+  .placeholder-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(26, 23, 20, 0.045) 0px,
+      rgba(26, 23, 20, 0.045) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+  }
+}
+
+@layer utilities {
+  .reveal-mask {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Honour the OS setting. Slow luxury motion is a preference,
+   not a requirement. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

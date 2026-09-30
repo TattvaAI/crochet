@@ -1,0 +1,35 @@
+{
+  "name": "atelier-crochet",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "verify": "npm run typecheck && node scripts/verify-validation.mjs && node scripts/verify-calculator.mjs",
+    "check:runtime": "node scripts/check-errors.mjs",
+    "check:interactive": "node scripts/check-interactive.mjs",
+    "check:form": "node scripts/check-form.mjs",
+    "check:audit": "node scripts/audit.mjs",
+    "check:all": "node scripts/check-errors.mjs && node scripts/check-interactive.mjs && node scripts/check-form.mjs && node scripts/audit.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "^12.4.7",
+    "next": "^15.2.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.4",
+    "@types/node": "^22.14.1",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "playwright": "^1.63.0",
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5.8.3"
+  }
+}
